@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import WorldPic from "../assets/world.png";
+import CountUp from "react-countup";
 
 class World extends Component {
   state = {
@@ -13,7 +14,6 @@ class World extends Component {
     const response = await fetch(url);
     const cases = await response.json();
     this.setState({ cases: cases });
-    console.log(cases);
   }
   render() {
     return (
@@ -33,25 +33,63 @@ class World extends Component {
         <div className="all-data">
           <div className="total">
             <div className="txt">Kasallanganlar</div>
-            <div className="num">{this.state.cases.cases}</div>
+            <div className="num">
+              <CountUp
+                start={0}
+                end={this.state.cases.cases ? this.state.cases.cases : 0}
+                duration={3}
+              />
+            </div>
           </div>
 
           <div className="death">
             <div className="txt">Qurbonlar</div>
-            <div className="num">{this.state.cases.deaths}</div>
+            <div className="num">
+              <CountUp
+                start={0}
+                end={this.state.cases.deaths ? this.state.cases.deaths : 0}
+                duration={3}
+              />
+            </div>
           </div>
 
           <div className="recovered">
             <div className="txt">Sog`ayganlar</div>
-            <div className="num">{this.state.cases.recovered}</div>
+            <div className="num">
+              <CountUp
+                start={0}
+                end={
+                  this.state.cases.recovered ? this.state.cases.recovered : 0
+                }
+                duration={3}
+              />
+            </div>
           </div>
           <div className="total">
             <div className="txt">Kasalxonada</div>
-            <div className="num">{this.state.cases.active}</div>
+            <div className="num">
+              {" "}
+              <CountUp
+                start={0}
+                end={this.state.cases.active ? this.state.cases.active : 0}
+                duration={3}
+              />
+            </div>
           </div>
           <div className="total">
             <div className="txt">Tasir qilgan davlatlar</div>
-            <div className="num">{this.state.cases.affectedCountries}</div>
+            <div className="num">
+              {" "}
+              <CountUp
+                start={0}
+                end={
+                  this.state.cases.affectedCountries
+                    ? this.state.cases.affectedCountries
+                    : 0
+                }
+                duration={3}
+              />
+            </div>
           </div>
         </div>
       </Container>

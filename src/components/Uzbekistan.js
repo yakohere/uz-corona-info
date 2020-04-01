@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import UzbekPic from "../assets/uzbekistan.png";
+import CountUp from "react-countup";
 
 class Uzbekistan extends Component {
   state = {
@@ -32,31 +33,81 @@ class Uzbekistan extends Component {
         <div className="all-data">
           <div className="total">
             <div className="txt">Kasallanganlar</div>
-            <div className="num">{this.state.cases.cases}</div>
+            <div className="counter">
+              <CountUp
+                start={0}
+                end={this.state.cases.cases ? this.state.cases.cases : 0}
+                duration={3}
+              />
+            </div>
           </div>
           <div className="total">
             <div className="txt">Bugun aniqlanganlar</div>
-            <div className="num">{this.state.cases.todayCases}</div>
+            <div className="counter">
+              <CountUp
+                start={0}
+                end={
+                  this.state.cases.todayCases ? this.state.cases.todayCases : 0
+                }
+                duration={3}
+              />
+            </div>
           </div>
           <div className="death">
             <div className="txt">Qurbonlar</div>
-            <div className="num">{this.state.cases.deaths}</div>
+            <div className="counter">
+              <CountUp
+                start={0}
+                end={this.state.cases.deaths ? this.state.cases.deaths : 0}
+                duration={3}
+              />
+            </div>
           </div>
           <div className="death">
             <div className="txt">Bugun olamdan o`tganlar</div>
-            <div className="num">{this.state.cases.todayDeaths}</div>
+            <div className="counter">
+              <CountUp
+                start={0}
+                end={
+                  this.state.cases.todayDeaths
+                    ? this.state.cases.todayDeaths
+                    : 0
+                }
+                duration={3}
+              />
+            </div>
           </div>
           <div className="death">
             <div className="txt">Ahvoli og`irlar</div>
-            <div className="num">{this.state.cases.critical}</div>
+            <div className="counter">
+              <CountUp
+                start={0}
+                end={this.state.cases.critical ? this.state.cases.critical : 0}
+                duration={3}
+              />
+            </div>
           </div>
           <div className="recovered">
             <div className="txt">Sog`ayganlar</div>
-            <div className="num">{this.state.cases.recovered}</div>
+            <div className="counter">
+              <CountUp
+                start={0}
+                end={
+                  this.state.cases.recovered ? this.state.cases.recovered : 0
+                }
+                duration={3}
+              />
+            </div>
           </div>
           <div className="total">
             <div className="txt">Kasalxonada</div>
-            <div className="num">{this.state.cases.active}</div>
+            <div className="counter">
+              <CountUp
+                start={0}
+                end={this.state.cases.active ? this.state.cases.active : 0}
+                duration={3}
+              />
+            </div>
           </div>
         </div>
       </Container>
@@ -136,7 +187,7 @@ const Container = styled.div`
         font-weight: bold;
       }
 
-      .num {
+      .counter {
         font-size: 20px;
         color: #3f8980;
         font-weight: bold;
@@ -160,7 +211,7 @@ const Container = styled.div`
         font-size: 16px;
         font-weight: bold;
       }
-      .num {
+      .counter {
         font-size: 20px;
         color: #a83434;
         font-weight: bold;
@@ -184,7 +235,7 @@ const Container = styled.div`
         font-size: 16px;
         font-weight: bold;
       }
-      .num {
+      .counter {
         font-size: 20px;
         color: #3b7a24;
         font-weight: bold;
