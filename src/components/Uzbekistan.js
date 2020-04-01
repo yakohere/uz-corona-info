@@ -11,7 +11,7 @@ class Uzbekistan extends Component {
     const url = "https://corona.lmao.ninja/countries/uzbekistan";
     const response = await fetch(url);
     const cases = await response.json();
-    this.setState({ cases: cases }); 
+    this.setState({ cases: cases });
   }
   render() {
     return (
@@ -30,7 +30,7 @@ class Uzbekistan extends Component {
           </div>
           <div className="total">
             <div className="txt">Bugun aniqlanganlar</div>
-            <div className="num">{this.state.cases.todayCases}</div>
+            <div className="num">{/*this.state.cases.todayCases*/}0</div>
           </div>
           <div className="death">
             <div className="txt">O`lganlar</div>
@@ -68,7 +68,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 
   .all-data {
     width: 80%;
