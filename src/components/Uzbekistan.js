@@ -21,12 +21,14 @@ class Uzbekistan extends Component {
           <h1>O`zbekiston</h1>
           <img src={UzbekPic} />
         </div>
-        <p style={{ color: "#B5B038" }}>
-          {this.state.time.toLocaleDateString()}
-        </p>
-        <p style={{ color: "#B5B038" }}>
-          {this.state.time.toLocaleTimeString()}
-        </p>
+        <div>
+          <p style={{ color: "#B5B038" }}>
+            {this.state.time.toLocaleDateString()}
+          </p>
+          <p style={{ color: "#B5B038" }}>
+            {this.state.time.toLocaleTimeString()}
+          </p>
+        </div>
         <div className="all-data">
           <div className="total">
             <div className="txt">Kasallanganlar</div>
@@ -82,6 +84,25 @@ const Container = styled.div`
     img {
       width: 50px;
       margin: 5px;
+      position: relative;
+      animation-name: slide;
+      animation-duration: 3s;
+      animation-iteration-count: 1;
+    }
+
+    @keyframes slide {
+      0% {
+        right: 0px;
+        top: 0px;
+      }
+      50% {
+        right: 100px;
+        top: 0px;
+      }
+      100% {
+        right: 0px;
+        top: 0px;
+      }
     }
   }
 
