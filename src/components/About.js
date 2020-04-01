@@ -2,24 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import Me from "../assets/me.png";
 import Virus from "../assets/virus.png";
-import { Link } from "react-router-dom";
+import BlackNavigation from "../UI/BlackNav";
 
 const about = () => {
   return (
     <Container>
-      <Link
-        to="/"
-        style={{
-          color: "black",
-          textDecoration: "none",
-          border: "1px solid black",
-          padding: "5px",
-          borderRadius: "5px",
-          marginTop: "15px"
-        }}
-      >
-        Bosh Sahifa
-      </Link>
+      <BlackNavigation path="./news" pathName="YANGILIKLAR" />
       <div className="about">
         <img src={Virus} alt="corona-logo" />
         <div className="txt">

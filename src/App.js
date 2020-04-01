@@ -2,7 +2,7 @@ import React from "react";
 import Uzbekistan from "./components/Uzbekistan";
 import World from "./components/World";
 import styled from "styled-components";
-import Navigation from "./components/Navigation";
+import Navigation from "./UI/Navigation";
 
 function App() {
   return (

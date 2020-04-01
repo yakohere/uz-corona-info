@@ -12,7 +12,12 @@ const navigation = () => {
           COVID-19 <br />
           STATISTIKA
         </div>
-        <Link to="/malumot">MA`LUMOT</Link>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <Link to="/news">YANGILIKLAR</Link>
+          <Link style={{ textAlign: "center" }} to="/malumot">
+            MA`LUMOT
+          </Link>
+        </div>
       </div>
     </Container>
   );
@@ -41,7 +46,7 @@ const Container = styled.div`
       color: white;
       align-items: center;
       display: flex;
-        
+
       img {
         width: 84px;
         height: 84px;
@@ -53,6 +58,7 @@ const Container = styled.div`
       border: 1px solid white;
       padding: 5px;
       border-radius: 5px;
+      margin-bottom: 5px;
     }
   }
 `;

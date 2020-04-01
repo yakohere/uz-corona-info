@@ -5,6 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import About from "./components/About";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import News from "./components/News";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,6 +13,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/" exact component={App} />
         <Route path="/malumot" exact component={About} />
+        <Route path="/news" exact component={News} />
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,
