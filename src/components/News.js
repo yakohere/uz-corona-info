@@ -7,7 +7,7 @@ class News extends Component {
   render() {
     return (
       <Container>
-        <BlackNavigation path="/" pathName="MA`LUMOT" />
+        <BlackNavigation path="/malumot" pathName="MA`LUMOT" />
         <div className="scnd-cont">
           {newsData.map(news => (
             <div key={news.id} className="news">

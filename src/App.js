@@ -3,6 +3,7 @@ import Uzbekistan from "./components/Uzbekistan";
 import World from "./components/World";
 import styled from "styled-components";
 import Navigation from "./UI/Navigation";
+import TopTen from "./components/TopTen";
 
 function App() {
   return (
