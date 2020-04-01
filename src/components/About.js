@@ -70,15 +70,22 @@ const Container = styled.div`
     box-sizing: border-box;
     @media screen and (max-width: 428px) {
       width: 100%;
+      flex-direction: column;
     }
 
     img {
       width: 20%;
+      @media screen and (max-width: 428px) {
+        width: 50%;
+      }
     }
 
     .txt {
       width: 70%;
       padding: 20px;
+      @media screen and (max-width: 428px) {
+        width: 90%;
+      }
     }
   }
 `;
