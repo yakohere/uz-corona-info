@@ -25,7 +25,8 @@ const about = () => {
         <div className="txt">
           Ushbu web site sizga yangi kirib kelgan Covid-19 yani karona virus
           O`zbekiston va Dunyo bo`yicha statistikalarini ishonarli raqamlar
-          bilan ko`rsatadi.
+          bilan ko`rsatadi. Dasturlash jarayoni hali ham davom etmoqda tez orada
+          yana yangi bo`limlar kiritiladi.
         </div>
       </div>
       <div className="about">
@@ -34,6 +35,10 @@ const about = () => {
           Web sayt Yakhyo Ismoiljonov tomonidan tayyorlandi. Developerlarni
           hamkorlikga chaqiraman.{" "}
           <a href="https://www.facebook.com/yakhyo.ismoildjanov">Facebook</a>
+          <br />
+          Ushbu sayt open source(ochiq manba) bo`lib GitHub da o`z hissangizni
+          qo`shishingiz mumkin.{" "}
+          <a href="https://github.com/devyako/corona-uzb-live">GitHub</a>
         </div>
       </div>
     </Container>
