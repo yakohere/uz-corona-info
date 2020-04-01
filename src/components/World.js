@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import WorldPic from "../assets/world.png";
 
 class World extends Component {
   state = {
@@ -12,11 +13,15 @@ class World extends Component {
     const response = await fetch(url);
     const cases = await response.json();
     this.setState({ cases: cases });
+    console.log(cases);
   }
   render() {
     return (
       <Container>
-        <h1 style={{ color: "white" }}>Dunyo Bo`yicha</h1>
+        <div className="title">
+          <h1>Dunyo Bo`yicha</h1>
+          <img src={WorldPic} />
+        </div>
         <p style={{ color: "#B5B038" }}>
           {this.state.time.toLocaleDateString()}
         </p>
@@ -30,7 +35,7 @@ class World extends Component {
           </div>
 
           <div className="death">
-            <div className="txt">O`lganlar</div>
+            <div className="txt">Qurbonlar</div>
             <div className="num">{this.state.cases.deaths}</div>
           </div>
 
@@ -41,6 +46,10 @@ class World extends Component {
           <div className="total">
             <div className="txt">Kasalxonada</div>
             <div className="num">{this.state.cases.active}</div>
+          </div>
+          <div className="total">
+            <div className="txt">Tasir qilgan davlatlar</div>
+            <div className="num">{this.state.cases.affectedCountries}</div>
           </div>
         </div>
       </Container>
@@ -60,6 +69,17 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 
+  .title {
+    display: flex;
+    color: white;
+    align-items: center;
+
+    img {
+      width: 50px;
+      margin: 5px;
+    }
+  }
+
   .all-data {
     width: 80%;
     display: flex;
@@ -69,6 +89,7 @@ const Container = styled.div`
     box-sizing: border-box;
     @media screen and (max-width: 428px) {
       width: 100%;
+      padding: 5px;
     }
 
     .total {
@@ -80,7 +101,7 @@ const Container = styled.div`
       padding: 5px;
       text-align: center;
       @media screen and (max-width: 428px) {
-        width: 200px;
+        width: 150px;
       }
 
       .txt {
@@ -106,7 +127,7 @@ const Container = styled.div`
       border-radius: 10px;
 
       @media screen and (max-width: 428px) {
-        width: 200px;
+        width: 150px;
       }
       .txt {
         text-transform: uppercase;
@@ -130,7 +151,7 @@ const Container = styled.div`
 
       border-radius: 10px;
       @media screen and (max-width: 428px) {
-        width: 200px;
+        width: 150px;
       }
       .txt {
         text-transform: uppercase;
