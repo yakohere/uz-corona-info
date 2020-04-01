@@ -25,7 +25,7 @@ class World extends Component {
         </p>
         <div className="all-data">
           <div className="total">
-            <div className="txt">Kassallanganlar</div>
+            <div className="txt">Kasallanganlar</div>
             <div className="num">{this.state.cases.cases}</div>
           </div>
 
@@ -39,7 +39,7 @@ class World extends Component {
             <div className="num">{this.state.cases.recovered}</div>
           </div>
           <div className="total">
-            <div className="txt">Kasalhonada</div>
+            <div className="txt">Kasalxonada</div>
             <div className="num">{this.state.cases.active}</div>
           </div>
         </div>

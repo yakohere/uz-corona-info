@@ -25,7 +25,7 @@ class Uzbekistan extends Component {
         </p>
         <div className="all-data">
           <div className="total">
-            <div className="txt">Kassallanganlar</div>
+            <div className="txt">Kasallanganlar</div>
             <div className="num">{this.state.cases.cases}</div>
           </div>
           <div className="total">
@@ -33,11 +33,11 @@ class Uzbekistan extends Component {
             <div className="num">{/*this.state.cases.todayCases*/}0</div>
           </div>
           <div className="death">
-            <div className="txt">O`lganlar</div>
+            <div className="txt">Qurbonlar</div>
             <div className="num">{this.state.cases.deaths}</div>
           </div>
           <div className="death">
-            <div className="txt">Bugun O`lganlar</div>
+            <div className="txt">Bugun olamdan o`tganlar</div>
             <div className="num">{this.state.cases.todayDeaths}</div>
           </div>
           <div className="death">
@@ -49,7 +49,7 @@ class Uzbekistan extends Component {
             <div className="num">{this.state.cases.recovered + 1}</div>
           </div>
           <div className="total">
-            <div className="txt">Kasalhonada</div>
+            <div className="txt">Kasalxonada</div>
             <div className="num">{this.state.cases.active}</div>
           </div>
         </div>
