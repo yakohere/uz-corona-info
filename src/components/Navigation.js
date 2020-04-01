@@ -41,7 +41,7 @@ const Container = styled.div`
       color: white;
       align-items: center;
       display: flex;
-
+        
       img {
         width: 84px;
         height: 84px;
