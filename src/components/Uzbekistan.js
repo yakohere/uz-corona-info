@@ -20,7 +20,7 @@ class Uzbekistan extends Component {
       <Container>
         <div className="title">
           <h1>O`zbekiston</h1>
-          <img src={UzbekPic} />
+          <img src={UzbekPic} alt="img" />
         </div>
         <div>
           <p style={{ color: "#B5B038" }}>

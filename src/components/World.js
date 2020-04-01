@@ -20,7 +20,7 @@ class World extends Component {
       <Container>
         <div className="title">
           <h1>Dunyo Bo`yicha</h1>
-          <img src={WorldPic} />
+          <img src={WorldPic} alt="img" />
         </div>
         <div>
           <p style={{ color: "#B5B038" }}>

@@ -12,12 +12,10 @@ class News extends Component {
           {newsData.map(news => (
             <div key={news.id} className="news">
               <div className="img">
-                <img src={news.img} />
+                <img src={news.img} alt="img" />
               </div>
               <div className="text">
                 <div className="title">{news.title}</div>
-                <hr />
-                <div className="article">{news.article}</div>
               </div>
             </div>
           ))}
