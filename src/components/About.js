@@ -75,6 +75,7 @@ const Container = styled.div`
 
     img {
       width: 20%;
+      border-radius: 50%;
       @media screen and (max-width: 428px) {
         width: 50%;
       }
