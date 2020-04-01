@@ -21,7 +21,7 @@ const about = () => {
         Bosh Sahifa
       </Link>
       <div className="about">
-        <img src={Virus} />
+        <img src={Virus} alt="corona-logo" />
         <div className="txt">
           Ushbu web site sizga yangi kirib kelgan Covid-19 yani karona virus
           O`zbekiston va Dunyo bo`yicha statistikalarini ishonarli raqamlar
@@ -29,7 +29,7 @@ const about = () => {
         </div>
       </div>
       <div className="about">
-        <img src={Me} />
+        <img src={Me} alt="me" />
         <div className="txt">
           Web sayt Yakhyo Ismoiljonov tomonidan tayyorlandi. Developerlarni
           hamkorlikga chaqiraman.{" "}

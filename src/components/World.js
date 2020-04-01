@@ -12,7 +12,6 @@ class World extends Component {
     const response = await fetch(url);
     const cases = await response.json();
     this.setState({ cases: cases });
-    console.log(this.state.cases);
   }
   render() {
     return (

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import Virus from "../assets/virus.png";
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ const navigation = () => {
   return (
     <Container>
       <div className="nav">
-        <img src={Virus} />
+        <img src={Virus} alt="corona-logo" />
         <p>COVID-19 STATISTIKA</p>
         <Link to="/malumot">MA`LUMOT</Link>
       </div>

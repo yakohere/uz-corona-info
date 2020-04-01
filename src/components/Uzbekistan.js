@@ -11,8 +11,7 @@ class Uzbekistan extends Component {
     const url = "https://corona.lmao.ninja/countries/uzbekistan";
     const response = await fetch(url);
     const cases = await response.json();
-    this.setState({ cases: cases });
-    console.log(this.state.cases);
+    this.setState({ cases: cases }); 
   }
   render() {
     return (
