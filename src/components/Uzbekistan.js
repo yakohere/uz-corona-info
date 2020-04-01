@@ -46,7 +46,7 @@ class Uzbekistan extends Component {
           </div>
           <div className="recovered">
             <div className="txt">Sog`ayganlar</div>
-            <div className="num">{this.state.cases.recovered}</div>
+            <div className="num">{this.state.cases.recovered + 1}</div>
           </div>
           <div className="total">
             <div className="txt">Kasalhonada</div>
