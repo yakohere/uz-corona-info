@@ -2,39 +2,19 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import UzbekPic from "../assets/uzbekistan.png";
 import CountUp from "react-countup";
-import Moment from "react-moment";
 
 class Uzbekistan extends Component {
   state = {
     cases: [],
-    updatedTime: "",
-    atHospital: null,
-    critical: null
+    time: new Date()
   };
 
   async componentDidMount() {
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    const url = "https://www.trackcorona.live/api/countries/"; // site that doesn’t send Access-Control-*
-    const response = await fetch(proxyurl + url); // https://cors-anywhere.herokuapp.com/https://example.com
+    const url = "https://corona.lmao.ninja/countries/uzbekistan";
+    const response = await fetch(url);
     const cases = await response.json();
-    const updatedArray = cases.data.filter(
-      element => element.location === "Uzbekistan"
-    );
-    this.setState({
-      cases: updatedArray[0],
-      updatedTime: updatedArray[0].updated
-    });
-    const atHospital = this.state.cases.confirmed - this.state.cases.recovered;
-    this.setState({
-      atHospital: atHospital
-    });
-
-    const criticalUrl = "https://corona.lmao.ninja/countries/uzbekistan";
-    const criticalResponse = await fetch(criticalUrl);
-    const critCases = await criticalResponse.json();
-    this.setState({ critical: critCases.critical });
+    this.setState({ cases: cases });
   }
-
   render() {
     return (
       <Container>
@@ -42,11 +22,13 @@ class Uzbekistan extends Component {
           <h1>O`zbekiston</h1>
           <img src={UzbekPic} alt="img" />
         </div>
-        <div className="updatedTime">
-          <Moment format="MMMM Do YYYY, h:mm:ss a">
-            {this.state.updatedTime}
-          </Moment>{" "}
-          dagi holat.
+        <div>
+          <p style={{ color: "#B5B038" }}>
+            {this.state.time.toLocaleDateString()}
+          </p>
+          <p style={{ color: "#B5B038" }}>
+            {this.state.time.toLocaleTimeString()}
+          </p>
         </div>
         <div className="all-data">
           <div className="total">
@@ -54,31 +36,53 @@ class Uzbekistan extends Component {
             <div className="counter">
               <CountUp
                 start={0}
+                end={this.state.cases.cases ? this.state.cases.cases : 0}
+                duration={3}
+              />
+            </div>
+          </div>
+          <div className="total">
+            <div className="txt">Bugun aniqlanganlar</div>
+            <div className="counter">
+              <CountUp
+                start={0}
                 end={
-                  this.state.cases.confirmed ? this.state.cases.confirmed : 0
+                  this.state.cases.todayCases ? this.state.cases.todayCases : 0
                 }
                 duration={3}
               />
             </div>
           </div>
-
           <div className="death">
             <div className="txt">Qurbonlar</div>
             <div className="counter">
               <CountUp
                 start={0}
-                end={this.state.cases.dead ? this.state.cases.dead : 0}
+                end={this.state.cases.deaths ? this.state.cases.deaths : 0}
                 duration={3}
               />
             </div>
           </div>
-
+          <div className="death">
+            <div className="txt">Bugun olamdan o`tganlar</div>
+            <div className="counter">
+              <CountUp
+                start={0}
+                end={
+                  this.state.cases.todayDeaths
+                    ? this.state.cases.todayDeaths  
+                    : 0
+                }
+                duration={3}
+              />
+            </div>
+          </div>
           <div className="death">
             <div className="txt">Ahvoli og`irlar</div>
             <div className="counter">
               <CountUp
                 start={0}
-                end={this.state.critical ? this.state.critical : 0}
+                end={this.state.cases.critical ? this.state.cases.critical : 0}
                 duration={3}
               />
             </div>
@@ -100,7 +104,7 @@ class Uzbekistan extends Component {
             <div className="counter">
               <CountUp
                 start={0}
-                end={this.state.atHospital ? this.state.atHospital : 0}
+                end={this.state.cases.active ? this.state.cases.active : 0}
                 duration={3}
               />
             </div>
@@ -122,10 +126,6 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  .updatedTime {
-    color: #b5b038;
-  }
 
   .title {
     display: flex;
