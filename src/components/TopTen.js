@@ -22,7 +22,6 @@ class TopTen extends Component {
     const response = await fetch(url);
     const upcomingCases = await response.json();
     this.setState({ totalCases: upcomingCases.slice(0, 9) });
-    console.log(this.state.totalCases);
   }
   render() {
     return (
@@ -40,7 +39,7 @@ class TopTen extends Component {
             <div className="numbers">
               {this.state.totalCases.map(case1 => (
                 <div style={{ marginBottom: "5px" }} key={case1.country}>
-                  {case1.cases}{" "}
+                  {case1.cases}
                 </div>
               ))}
             </div>

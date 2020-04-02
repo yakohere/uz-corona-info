@@ -4,7 +4,7 @@ import UzbekPic from "../assets/uzbekistan.png";
 import CountUp from "react-countup";
 import Moment from "react-moment";
 
-class Uzbekistan extends Component {
+class NewApi extends Component {
   state = {
     cases: [],
     updatedTime: "",
@@ -111,7 +111,7 @@ class Uzbekistan extends Component {
   }
 }
 
-export default Uzbekistan;
+export default NewApi;
 
 const Container = styled.div`
   text-align: center;

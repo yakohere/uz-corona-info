@@ -8,9 +8,11 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "jQuery": "^1.7.4",
+    "moment": "^2.24.0",
     "react": "^16.13.1",
     "react-countup": "^4.3.3",
     "react-dom": "^16.13.1",
+    "react-moment": "^0.9.7",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "styled-components": "^5.0.1"
