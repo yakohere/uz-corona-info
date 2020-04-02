@@ -107,6 +107,9 @@ const Container = styled.div`
 
   .updatedTime {
     color: #b5b038;
+    @media screen and (max-width: 428px) {
+      margin-bottom: 10px;
+    }
   }
 
   .title {
@@ -129,7 +132,7 @@ const Container = styled.div`
         top: 0px;
       }
       50% {
-        right: 100px;
+        right: 50px;
         top: 0px;
       }
       100% {
