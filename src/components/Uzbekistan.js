@@ -2,18 +2,19 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import UzbekPic from "../assets/uzbekistan.png";
 import CountUp from "react-countup";
+import Moment from "react-moment";
 
 class Uzbekistan extends Component {
   state = {
     cases: [],
-    time: new Date()
+    time: null
   };
 
   async componentDidMount() {
     const url = "https://corona.lmao.ninja/countries/uzbekistan";
     const response = await fetch(url);
     const cases = await response.json();
-    this.setState({ cases: cases });
+    this.setState({ cases: cases, time: cases.updated });
   }
   render() {
     return (
@@ -22,13 +23,8 @@ class Uzbekistan extends Component {
           <h1>O`zbekiston</h1>
           <img src={UzbekPic} alt="img" />
         </div>
-        <div>
-          <p style={{ color: "#B5B038" }}>
-            {this.state.time.toLocaleDateString()}
-          </p>
-          <p style={{ color: "#B5B038" }}>
-            {this.state.time.toLocaleTimeString()}
-          </p>
+        <div className="updatedTime">
+          <Moment calendar>{this.state.time}</Moment>dagi holat.
         </div>
         <div className="all-data">
           <div className="total">
@@ -70,7 +66,7 @@ class Uzbekistan extends Component {
                 start={0}
                 end={
                   this.state.cases.todayDeaths
-                    ? this.state.cases.todayDeaths  
+                    ? this.state.cases.todayDeaths
                     : 0
                 }
                 duration={3}
@@ -126,6 +122,10 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .updatedTime {
+    color: #b5b038;
+  }
 
   .title {
     display: flex;

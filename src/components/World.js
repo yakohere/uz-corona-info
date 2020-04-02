@@ -2,18 +2,19 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import WorldPic from "../assets/world.png";
 import CountUp from "react-countup";
+import Moment from "react-moment";
 
 class World extends Component {
   state = {
     cases: [],
-    time: new Date()
+    time: null
   };
 
   async componentDidMount() {
     const url = "https://corona.lmao.ninja/all";
     const response = await fetch(url);
     const cases = await response.json();
-    this.setState({ cases: cases });
+    this.setState({ cases: cases, time: cases.updated });
   }
   render() {
     return (
@@ -22,13 +23,8 @@ class World extends Component {
           <h1>Dunyo Bo`yicha</h1>
           <img src={WorldPic} alt="img" />
         </div>
-        <div>
-          <p style={{ color: "#B5B038" }}>
-            {this.state.time.toLocaleDateString()}
-          </p>
-          <p style={{ color: "#B5B038" }}>
-            {this.state.time.toLocaleTimeString()}
-          </p>
+        <div className="updatedTime">
+          <Moment calendar>{this.state.time}</Moment>dagi holat.
         </div>
         <div className="all-data">
           <div className="total">
@@ -108,6 +104,10 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .updatedTime {
+    color: #b5b038;
+  }
 
   .title {
     display: flex;
