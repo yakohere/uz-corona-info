@@ -3,46 +3,63 @@ import styled from "styled-components";
 
 class TopTen extends Component {
   state = {
-    totalCases: [],
-    countries: [
-      "Amerika",
-      "Italiya",
-      "Ispaniya",
-      "Germaniya",
-      "Fransiya",
-      "Eron",
-      "Buyuk Biritaniya",
-      "Shvetsariya",
-      "Turkiya"
-    ]
+    topCases: [],
+    topDeaths: [],
+    topRecovered: []
   };
 
   async componentDidMount() {
     const url = "https://corona.lmao.ninja/countries";
     const response = await fetch(url);
+
     const upcomingCases = await response.json();
-    this.setState({ totalCases: upcomingCases.slice(0, 9) });
+    const topCases = upcomingCases.slice(0, 10);
+    const topDeaths = upcomingCases
+      .sort((a, b) => (a.deaths < b.deaths ? 1 : -1))
+      .slice(0, 10);
+    const topRecovered = upcomingCases
+      .sort((a, b) => (a.recovered < b.recovered ? 1 : -1))
+      .slice(0, 10);
+    this.setState({
+      topCases: topCases,
+      topDeaths: topDeaths,
+      topRecovered: topRecovered
+    });
   }
   render() {
     return (
       <Container>
         <div className="top-cases">
-          <div className="title">Eng ko`p aniqlangan davlatlar</div>
-          <div className="case-container">
-            <div className="country">
-              {this.state.countries.map(country => (
-                <div style={{ marginBottom: "5px" }} key={country}>
-                  {country}{" "}
-                </div>
-              ))}
-            </div>
-            <div className="numbers">
-              {this.state.totalCases.map(case1 => (
-                <div style={{ marginBottom: "5px" }} key={case1.country}>
-                  {case1.cases}
-                </div>
-              ))}
-            </div>
+          <div className="title-cases">Top 10 aniqlanganlar</div>
+          <div className="cases-container">
+            {this.state.topCases.map(cased => (
+              <div className="case" key={cased.country}>
+                <div className="country">{cased.country}</div>
+                <div className="numbers-case">{cased.cases}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="top-deaths">
+          <div className="title-deaths">Top 10 Qurbonlar</div>
+          <div className="cases-container">
+            {this.state.topDeaths.map(cased => (
+              <div className="case" key={cased.country}>
+                <div className="country">{cased.country}</div>
+                <div className="numbers-death">{cased.deaths}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="top-recovered">
+          <div className="title-recovered">Top 10 Sog`ayganlar</div>
+          <div className="cases-container">
+            {this.state.topRecovered.map(cased => (
+              <div className="case" key={cased.country}>
+                <div className="country">{cased.country}</div>
+                <div className="numbers-recovered">{cased.recovered}</div>
+              </div>
+            ))}
           </div>
         </div>
       </Container>
@@ -67,33 +84,82 @@ const Container = styled.div`
     color: black;
     width: 250px;
     border-radius: 10px;
+    margin-bottom: 10px;
     @media screen and (max-width: 428px) {
       width: 80%;
     }
+
+    .title-cases {
+      background-color: #3f8980;
+      padding: 10px;
+      box-sizing: border-box;
+      color: white;
+      text-transform: uppercase;
+    }
   }
 
-  .title {
-    background-color: #3f8980;
-    padding: 10px;
-    box-sizing: border-box;
-    color: white;
-    text-transform: uppercase;
+  .top-deaths {
+    background-color: white;
+    color: black;
+    width: 250px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    @media screen and (max-width: 428px) {
+      width: 80%;
+    }
+
+    .title-deaths {
+      background-color: #a83434;
+      padding: 10px;
+      box-sizing: border-box;
+      color: white;
+      text-transform: uppercase;
+    }
   }
 
-  .case-container {
+  .cases-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 5px;
 
-    .country {
-      font-size: 17px;
+    .case {
+      width: 80%;
+      font-size: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .numbers-case {
+        color: #3f8980;
+      }
+
+      .numbers-death {
+        color: #a83434;
+      }
+    }
+  }
+
+  .top-recovered {
+    background-color: white;
+    color: black;
+    width: 250px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    @media screen and (max-width: 428px) {
+      width: 80%;
     }
 
-    .numbers {
-      font-size: 17px;
-      color: #3f8980;
+    .title-recovered {
+      background-color: #3b7a24;
+      padding: 10px;
+      box-sizing: border-box;
+      color: white;
+      text-transform: uppercase;
+    }
+    .numbers-recovered {
+      color: #3b7a24;
     }
   }
 `;
