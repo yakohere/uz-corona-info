@@ -75,8 +75,9 @@ const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
   align-items: center;
 
   .top-cases {
