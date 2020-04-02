@@ -14,7 +14,7 @@ const blackNavigation = props => {
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <Link to="/">BOSH SAHIFA</Link>
-          <Link style={{ textAlign: "center" }} to={props.path}>
+          <Link to={props.path} style={{ textAlign: "center" }}>
             {props.pathName}
           </Link>
         </div>

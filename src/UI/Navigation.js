@@ -14,7 +14,7 @@ const navigation = () => {
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <Link to="/news">YANGILIKLAR</Link>
-          <Link style={{ textAlign: "center" }} to="/malumot">
+          <Link to="/malumot" style={{ textAlign: "center" }}>
             MA`LUMOT
           </Link>
         </div>
