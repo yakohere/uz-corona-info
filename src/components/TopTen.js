@@ -68,6 +68,9 @@ const Container = styled.div`
     color: black;
     width: 250px;
     border-radius: 10px;
+    @media screen and (max-width: 428px) {
+      width: 80%;
+    }
   }
 
   .title {
