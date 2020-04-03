@@ -3,6 +3,7 @@ import styled from "styled-components";
 import WorldPic from "../assets/world.png";
 import CountUp from "react-countup";
 import Moment from "react-moment";
+import "moment/locale/uz-latn";
 
 class World extends Component {
   state = {

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import UzbekPic from "../assets/uzbekistan.png";
 import CountUp from "react-countup";
 import Moment from "react-moment";
+import "moment/locale/uz-latn";
 
 class Uzbekistan extends Component {
   state = {
@@ -24,7 +25,8 @@ class Uzbekistan extends Component {
           <img src={UzbekPic} alt="img" />
         </div>
         <div className="updatedTime">
-          <Moment calendar>{this.state.time}</Moment>dagi holat.
+          <Moment calendar>{this.state.time}</Moment>
+          gi holat.
         </div>
         <div className="all-data">
           <div className="total">
