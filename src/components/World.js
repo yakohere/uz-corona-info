@@ -15,6 +15,7 @@ class World extends Component {
     const url = "https://corona.lmao.ninja/all";
     const response = await fetch(url);
     const cases = await response.json();
+
     this.setState({ cases: cases, time: cases.updated });
   }
   render() {
@@ -25,7 +26,7 @@ class World extends Component {
           <img src={WorldPic} alt="img" />
         </div>
         <div className="updatedTime">
-          <Moment calendar>{this.state.time}</Moment>dagi holat.
+          <Moment calendar>{this.state.time}</Moment>gi holat.
         </div>
         <div className="all-data">
           <div className="total">

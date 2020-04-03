@@ -14,17 +14,39 @@ class TopTen extends Component {
 
     const upcomingCases = await response.json();
     const topCases = upcomingCases.slice(0, 10);
+    topCases.find(element => element.country === "USA").country = "Amerika";
+    topCases.find(element => element.country === "Italy").country = "Italiya";
+    topCases.find(element => element.country === "Spain").country = "Ispaniya";
+    topCases.find(element => element.country === "Germany").country =
+      "Germaniya";
+    topCases.find(element => element.country === "France").country = "Fransiya";
+    topCases.find(element => element.country === "Iran").country = "Eron";
+    topCases.find(element => element.country === "UK").country =
+      "Buyuk Britaniya";
+    topCases.find(element => element.country === "Switzerland").country =
+      "Shveytsariya";
+    topCases.find(element => element.country === "Turkey").country = "Turkiya";
+    topCases.find(element => element.country === "Belgium").country = "Belgiya";
     const topDeaths = upcomingCases
       .sort((a, b) => (a.deaths < b.deaths ? 1 : -1))
       .slice(0, 10);
+    topDeaths.find(element => element.country === "Netherlands").country =
+      "Niderlaniya";
+    topDeaths.find(element => element.country === "China").country = "Xitoy";
+
     const topRecovered = upcomingCases
       .sort((a, b) => (a.recovered < b.recovered ? 1 : -1))
       .slice(0, 10);
+    topRecovered.find(element => element.country === "S. Korea").country =
+      "Janubiy Koreya";
+
     this.setState({
       topCases: topCases,
       topDeaths: topDeaths,
       topRecovered: topRecovered
     });
+
+    console.log();
   }
   render() {
     return (
