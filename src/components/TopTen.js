@@ -53,7 +53,7 @@ class TopTen extends Component {
       topRecovered: topRecovered
     });
 
-    console.log();
+    console.log(this.state.topCases);
   }
   render() {
     return (
@@ -65,7 +65,9 @@ class TopTen extends Component {
               {this.state.topCases.map(cased => (
                 <div className="case" key={cased.country}>
                   <div className="country">{cased.country}</div>
-                  <div className="numbers-case">{cased.cases.toLocaleString("fi-FI")}</div>
+                  <div className="numbers-case">
+                    {cased.cases.toLocaleString("fi-FI")}
+                  </div>
                 </div>
               ))}
             </div>
@@ -76,7 +78,9 @@ class TopTen extends Component {
               {this.state.topDeaths.map(cased => (
                 <div className="case" key={cased.country}>
                   <div className="country">{cased.country}</div>
-                  <div className="numbers-death">{cased.deaths.toLocaleString("fi-FI")}</div>
+                  <div className="numbers-death">
+                    {cased.deaths.toLocaleString("fi-FI")}
+                  </div>
                 </div>
               ))}
             </div>
@@ -87,7 +91,9 @@ class TopTen extends Component {
               {this.state.topRecovered.map(cased => (
                 <div className="case" key={cased.country}>
                   <div className="country">{cased.country}</div>
-                  <div className="numbers-recovered">{cased.recovered.toLocaleString("fi-FI")}</div>
+                  <div className="numbers-recovered">
+                    {cased.recovered.toLocaleString("fi-FI")}
+                  </div>
                 </div>
               ))}
             </div>
