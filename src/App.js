@@ -4,6 +4,7 @@ import World from "./components/World";
 import styled from "styled-components";
 import Navigation from "./UI/Navigation";
 import TopTen from "./components/TopTen";
+import Footer from "./UI/Footer";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Uzbekistan />
       <World />
       <TopTen />
+      <Footer />
     </Container>
   );
 }

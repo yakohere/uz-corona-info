@@ -11,9 +11,9 @@ class TopTen extends Component {
   async componentDidMount() {
     const url = "https://corona.lmao.ninja/countries";
     const response = await fetch(url);
-
     const upcomingCases = await response.json();
     const topCases = upcomingCases.slice(0, 10);
+
     topCases.find(element => element.country === "USA").country = "Amerika";
     topCases.find(element => element.country === "Italy").country = "Italiya";
     topCases.find(element => element.country === "Spain").country = "Ispaniya";
@@ -27,9 +27,11 @@ class TopTen extends Component {
       "Shveytsariya";
     topCases.find(element => element.country === "Turkey").country = "Turkiya";
     topCases.find(element => element.country === "Belgium").country = "Belgiya";
+
     const topDeaths = upcomingCases
       .sort((a, b) => (a.deaths < b.deaths ? 1 : -1))
       .slice(0, 10);
+
     topDeaths.find(element => element.country === "Netherlands").country =
       "Niderlaniya";
     topDeaths.find(element => element.country === "China").country = "Xitoy";
@@ -37,6 +39,7 @@ class TopTen extends Component {
     const topRecovered = upcomingCases
       .sort((a, b) => (a.recovered < b.recovered ? 1 : -1))
       .slice(0, 10);
+
     topRecovered.find(element => element.country === "S. Korea").country =
       "Janubiy Koreya";
 
@@ -51,37 +54,39 @@ class TopTen extends Component {
   render() {
     return (
       <Container>
-        <div className="top-cases">
-          <div className="title-cases">Top 10 aniqlanganlar</div>
-          <div className="cases-container">
-            {this.state.topCases.map(cased => (
-              <div className="case" key={cased.country}>
-                <div className="country">{cased.country}</div>
-                <div className="numbers-case">{cased.cases}</div>
-              </div>
-            ))}
+        <div className="top-ten">
+          <div className="top-cases">
+            <div className="title-cases">Top 10 aniqlanganlar</div>
+            <div className="cases-container">
+              {this.state.topCases.map(cased => (
+                <div className="case" key={cased.country}>
+                  <div className="country">{cased.country}</div>
+                  <div className="numbers-case">{cased.cases}</div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="top-deaths">
-          <div className="title-deaths">Top 10 Qurbonlar</div>
-          <div className="cases-container">
-            {this.state.topDeaths.map(cased => (
-              <div className="case" key={cased.country}>
-                <div className="country">{cased.country}</div>
-                <div className="numbers-death">{cased.deaths}</div>
-              </div>
-            ))}
+          <div className="top-deaths">
+            <div className="title-deaths">Top 10 Qurbonlar</div>
+            <div className="cases-container">
+              {this.state.topDeaths.map(cased => (
+                <div className="case" key={cased.country}>
+                  <div className="country">{cased.country}</div>
+                  <div className="numbers-death">{cased.deaths}</div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="top-recovered">
-          <div className="title-recovered">Top 10 Sog`ayganlar</div>
-          <div className="cases-container">
-            {this.state.topRecovered.map(cased => (
-              <div className="case" key={cased.country}>
-                <div className="country">{cased.country}</div>
-                <div className="numbers-recovered">{cased.recovered}</div>
-              </div>
-            ))}
+          <div className="top-recovered">
+            <div className="title-recovered">Top 10 Sog`ayganlar</div>
+            <div className="cases-container">
+              {this.state.topRecovered.map(cased => (
+                <div className="case" key={cased.country}>
+                  <div className="country">{cased.country}</div>
+                  <div className="numbers-recovered">{cased.recovered}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Container>
@@ -97,10 +102,28 @@ const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+
+  .top-ten {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    @media screen and (max-width: 1290px) {
+      width: 70%;
+    }
+
+    @media screen and (max-width: 1100px) {
+      width: 80%;
+    }
+    @media screen and (max-width: 1000px) {
+      width: 90%;
+    }
+  }
 
   .top-cases {
     background-color: white;
@@ -109,7 +132,7 @@ const Container = styled.div`
     border-radius: 10px;
     margin-bottom: 10px;
     @media screen and (max-width: 428px) {
-      width: 80%;
+      width: 100%;
     }
 
     .title-cases {
@@ -119,8 +142,21 @@ const Container = styled.div`
       color: white;
       text-transform: uppercase;
     }
+
+    .numbers-case {
+      font-size: 17px;
+      @media screen and (max-width: 428px) {
+        font-size: 20px;
+      }
+    }
   }
 
+  .country {
+    font-size: 16px;
+    @media screen and (max-width: 428px) {
+      font-size: 19px;
+    }
+  }
   .top-deaths {
     background-color: white;
     color: black;
@@ -128,7 +164,7 @@ const Container = styled.div`
     border-radius: 10px;
     margin-bottom: 10px;
     @media screen and (max-width: 428px) {
-      width: 80%;
+      width: 100%;
     }
 
     .title-deaths {
@@ -159,7 +195,11 @@ const Container = styled.div`
       }
 
       .numbers-death {
+        font-size: 17px;
         color: #a83434;
+        @media screen and (max-width: 428px) {
+          font-size: 20px;
+        }
       }
     }
   }
@@ -171,7 +211,7 @@ const Container = styled.div`
     border-radius: 10px;
     margin-bottom: 10px;
     @media screen and (max-width: 428px) {
-      width: 80%;
+      width: 100%;
     }
 
     .title-recovered {
@@ -183,6 +223,10 @@ const Container = styled.div`
     }
     .numbers-recovered {
       color: #3b7a24;
+      font-size: 17px;
+      @media screen and (max-width: 428px) {
+        font-size: 20px;
+      }
     }
   }
 `;
