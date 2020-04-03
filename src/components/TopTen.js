@@ -15,7 +15,6 @@ class TopTen extends Component {
     const topCases = upcomingCases
       .sort((a, b) => (a.cases < b.cases ? 1 : -1))
       .slice(0, 10);
-    console.log(topCases);
 
     topCases.find(element => element.country === "USA").country = "Amerika";
     topCases.find(element => element.country === "Italy").country = "Italiya";
@@ -66,7 +65,7 @@ class TopTen extends Component {
               {this.state.topCases.map(cased => (
                 <div className="case" key={cased.country}>
                   <div className="country">{cased.country}</div>
-                  <div className="numbers-case">{cased.cases}</div>
+                  <div className="numbers-case">{cased.cases.toLocaleString("fi-FI")}</div>
                 </div>
               ))}
             </div>
@@ -77,7 +76,7 @@ class TopTen extends Component {
               {this.state.topDeaths.map(cased => (
                 <div className="case" key={cased.country}>
                   <div className="country">{cased.country}</div>
-                  <div className="numbers-death">{cased.deaths}</div>
+                  <div className="numbers-death">{cased.deaths.toLocaleString("fi-FI")}</div>
                 </div>
               ))}
             </div>
@@ -88,7 +87,7 @@ class TopTen extends Component {
               {this.state.topRecovered.map(cased => (
                 <div className="case" key={cased.country}>
                   <div className="country">{cased.country}</div>
-                  <div className="numbers-recovered">{cased.recovered}</div>
+                  <div className="numbers-recovered">{cased.recovered.toLocaleString("fi-FI")}</div>
                 </div>
               ))}
             </div>

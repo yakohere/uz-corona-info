@@ -7,7 +7,11 @@ import "moment/locale/uz-latn";
 
 class World extends Component {
   state = {
-    cases: [],
+    cases: "",
+    deaths: "",
+    recovered: "",
+    atHospital: "",
+    affectedCountries: "",
     time: null
   };
 
@@ -15,8 +19,14 @@ class World extends Component {
     const url = "https://corona.lmao.ninja/all";
     const response = await fetch(url);
     const cases = await response.json();
-
-    this.setState({ cases: cases, time: cases.updated });
+    this.setState({
+      cases: cases.cases.toLocaleString("fi-FI"),
+      deaths: cases.deaths.toLocaleString("fi-FI"),
+      recovered: cases.recovered.toLocaleString("fi-FI"),
+      atHospital: cases.active.toLocaleString("fi-FI"),
+      affectedCountries: cases.affectedCountries,
+      time: cases.updated
+    });
   }
   render() {
     return (
@@ -31,58 +41,30 @@ class World extends Component {
         <div className="all-data">
           <div className="total">
             <div className="txt">Kasallanganlar</div>
-            <div className="num">
-              <CountUp
-                start={0}
-                end={this.state.cases.cases ? this.state.cases.cases : 0}
-                duration={3}
-              />
-            </div>
+            <div className="num">{this.state.cases}</div>
           </div>
 
           <div className="death">
             <div className="txt">Qurbonlar</div>
-            <div className="num">
-              <CountUp
-                start={0}
-                end={this.state.cases.deaths ? this.state.cases.deaths : 0}
-                duration={3}
-              />
-            </div>
+            <div className="num">{this.state.deaths}</div>
           </div>
 
           <div className="recovered">
             <div className="txt">Sog`ayganlar</div>
-            <div className="num">
-              <CountUp
-                start={0}
-                end={
-                  this.state.cases.recovered ? this.state.cases.recovered : 0
-                }
-                duration={3}
-              />
-            </div>
+            <div className="num">{this.state.recovered}</div>
           </div>
           <div className="total">
             <div className="txt">Kasalxonada</div>
-            <div className="num">
-              {" "}
-              <CountUp
-                start={0}
-                end={this.state.cases.active ? this.state.cases.active : 0}
-                duration={3}
-              />
-            </div>
+            <div className="num">{this.state.atHospital}</div>
           </div>
           <div className="total">
             <div className="txt">Tasir qilgan davlatlar</div>
             <div className="num">
-              {" "}
               <CountUp
                 start={0}
                 end={
-                  this.state.cases.affectedCountries
-                    ? this.state.cases.affectedCountries
+                  this.state.affectedCountries
+                    ? this.state.affectedCountries
                     : 0
                 }
                 duration={3}
