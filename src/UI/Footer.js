@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const footer = () => {
   return <Container>uzkorona.info © 2020</Container>;
@@ -16,4 +15,5 @@ const Container = styled.div`
   font-family: "Montserrat", sans-serif;
   padding: 5px;
   font-size: 15px;
+  box-sizing: border-box;
 `;
