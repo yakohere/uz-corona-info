@@ -12,7 +12,10 @@ class TopTen extends Component {
     const url = "https://corona.lmao.ninja/countries";
     const response = await fetch(url);
     const upcomingCases = await response.json();
-    const topCases = upcomingCases.slice(0, 10);
+    const topCases = upcomingCases
+      .sort((a, b) => (a.cases < b.cases ? 1 : -1))
+      .slice(0, 10);
+    console.log(topCases);
 
     topCases.find(element => element.country === "USA").country = "Amerika";
     topCases.find(element => element.country === "Italy").country = "Italiya";
@@ -26,7 +29,6 @@ class TopTen extends Component {
     topCases.find(element => element.country === "Switzerland").country =
       "Shveytsariya";
     topCases.find(element => element.country === "Turkey").country = "Turkiya";
-    topCases.find(element => element.country === "Belgium").country = "Belgiya";
 
     const topDeaths = upcomingCases
       .sort((a, b) => (a.deaths < b.deaths ? 1 : -1))
@@ -35,6 +37,9 @@ class TopTen extends Component {
     topDeaths.find(element => element.country === "Netherlands").country =
       "Niderlaniya";
     topDeaths.find(element => element.country === "China").country = "Xitoy";
+
+    topDeaths.find(element => element.country === "Belgium").country =
+      "Belgiya";
 
     const topRecovered = upcomingCases
       .sort((a, b) => (a.recovered < b.recovered ? 1 : -1))
