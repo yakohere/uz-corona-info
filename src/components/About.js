@@ -11,11 +11,11 @@ const about = () => {
       <div className="about">
         <img src={Virus} alt="corona-logo" />
         <div className="txt">
-          Ushbu web saye sizga yangi kirib kelgan COVID-19 ya`ni korona virusini
+          Ushbu web sayt sizga yangi kirib kelgan COVID-19 ya`ni korona virusini
           O`zbekiston va Dunyo bo`yicha ishonarli raqamlar bilan ko`rsatadi.
           Barcha ma`lumotlar Jahon Sog`liqni Saqlash Vazirligi ma`lumotlar
           bazasidan olinadi shu sababli O`zbekistondagi raqamlar JSSV tomonidan
-          tasdiqlanmaguncha statistikalar yangilanishi 10 yoi 20 minutga
+          tasdiqlanmaguncha statistikalar yangilanishi 10 yoki 20 minutga
           kechikishi mumkin. Dasturlash jarayoni hali ham davom etmoqda tez
           orada yana yangi bo`lim va ma`lumotlar kiritiladi.
         </div>
