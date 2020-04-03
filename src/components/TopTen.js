@@ -35,7 +35,7 @@ class TopTen extends Component {
       .slice(0, 10);
 
     topDeaths.find(element => element.country === "Netherlands").country =
-      "Niderlaniya";
+      "Niderlandiya";
     topDeaths.find(element => element.country === "China").country = "Xitoy";
 
     topDeaths.find(element => element.country === "Belgium").country =
