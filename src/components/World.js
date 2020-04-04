@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import WorldPic from "../assets/world.png";
-import CountUp from "react-countup";
 import Moment from "react-moment";
 import "moment/locale/uz-latn";
 
@@ -12,7 +11,7 @@ class World extends Component {
     recovered: "",
     atHospital: "",
     affectedCountries: "",
-    time: null
+    time: null,
   };
 
   async componentDidMount() {
@@ -25,7 +24,7 @@ class World extends Component {
       recovered: cases.recovered.toLocaleString("fi-FI"),
       atHospital: cases.active.toLocaleString("fi-FI"),
       affectedCountries: cases.affectedCountries,
-      time: cases.updated
+      time: cases.updated,
     });
   }
   render() {
@@ -39,37 +38,27 @@ class World extends Component {
           <Moment calendar>{this.state.time}</Moment>gi holat.
         </div>
         <div className="all-data">
-          <div className="total">
-            <div className="txt">Kasallanganlar</div>
-            <div className="num">{this.state.cases}</div>
+          <div className="cases">
+            <div className="counter">{this.state.cases}</div>
+            <div className="txt">Tasdiqlandi</div>
           </div>
 
-          <div className="death">
+          <div className="deaths">
+            <div className="counter">{this.state.deaths}</div>
             <div className="txt">Qurbonlar</div>
-            <div className="num">{this.state.deaths}</div>
           </div>
 
           <div className="recovered">
+            <div className="counter">{this.state.recovered}</div>
             <div className="txt">Sog`ayganlar</div>
-            <div className="num">{this.state.recovered}</div>
           </div>
-          <div className="total">
+          <div className="atHospital">
+            <div className="counter">{this.state.atHospital}</div>
             <div className="txt">Kasalxonada</div>
-            <div className="num">{this.state.atHospital}</div>
           </div>
-          <div className="total">
-            <div className="txt">Tasir qilgan davlatlar</div>
-            <div className="num">
-              <CountUp
-                start={0}
-                end={
-                  this.state.affectedCountries
-                    ? this.state.affectedCountries
-                    : 0
-                }
-                duration={3}
-              />
-            </div>
+          <div className="effectedCountry">
+            <div className="counter">{this.state.affectedCountries}</div>
+            <div className="txt">Kassalangan davlatlar</div>
           </div>
         </div>
       </Container>
@@ -90,7 +79,7 @@ const Container = styled.div`
   align-items: center;
 
   .updatedTime {
-    color: #b5b038;
+    color: #e1e423;
     @media screen and (max-width: 428px) {
       margin-bottom: 10px;
     }
@@ -137,79 +126,195 @@ const Container = styled.div`
       width: 100%;
       padding: 5px;
     }
-
-    .total {
+    .cases {
       width: 170px;
-      height: 80px;
+      height: 100px;
       background-color: white;
       margin-bottom: 10px;
-      border-radius: 10px;
-      padding: 5px;
-      text-align: center;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       @media screen and (max-width: 428px) {
         width: 150px;
       }
 
       .txt {
+        width: 100%;
+        background: rgba(63, 167, 214, 0.23);
+        height: 40px;
+        padding: 10px;
+        box-sizing: border-box;
         text-transform: uppercase;
         font-size: 16px;
         font-weight: bold;
+        color: #3fa7d6;
       }
 
-      .num {
+      .counter {
+        width: 100%;
+        height: 60px;
         font-size: 20px;
         color: #3f8980;
         font-weight: bold;
-        padding: 10px;
+        padding: 20px;
+        color: #3fa7d6;
         box-sizing: border-box;
+        background: rgba(63, 167, 214, 0.17);
       }
     }
-    .death {
+    .deaths {
       width: 170px;
-      height: 80px;
+      height: 100px;
       background-color: white;
       margin-bottom: 10px;
-      padding: 5px;
-      border-radius: 10px;
-
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       @media screen and (max-width: 428px) {
         width: 150px;
       }
+
       .txt {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        box-sizing: border-box;
         text-transform: uppercase;
         font-size: 16px;
         font-weight: bold;
+        color: #fc440f;
+        background: rgba(252, 68, 15, 0.23);
       }
-      .num {
+      .counter {
+        width: 100%;
+        height: 60px;
         font-size: 20px;
-        color: #a83434;
+        color: #d1a636;
         font-weight: bold;
-        padding: 10px;
+        padding: 20px;
+        color: #fc440f;
         box-sizing: border-box;
+        background: rgba(252, 68, 15, 0.17);
       }
     }
     .recovered {
-      padding: 5px;
       width: 170px;
-      height: 80px;
+      height: 100px;
       background-color: white;
       margin-bottom: 10px;
-
-      border-radius: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       @media screen and (max-width: 428px) {
         width: 150px;
       }
+
       .txt {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        box-sizing: border-box;
         text-transform: uppercase;
         font-size: 16px;
         font-weight: bold;
+        color: #3a7d44;
+        background: rgba(58, 125, 68, 0.23);
       }
-      .num {
+      .counter {
+        width: 100%;
+        height: 60px;
         font-size: 20px;
-        color: #3b7a24;
+        color: #d1a636;
         font-weight: bold;
+        padding: 20px;
+        color: #3a7d44;
+        box-sizing: border-box;
+        background: rgba(58, 125, 68, 0.17);
+      }
+    }
+    .atHospital {
+      width: 170px;
+      height: 100px;
+      background-color: white;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @media screen and (max-width: 428px) {
+        width: 150px;
+      }
+
+      .txt {
+        width: 100%;
+        height: 40px;
         padding: 10px;
         box-sizing: border-box;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: bold;
+
+        color: #62726c;
+
+        background: rgba(129, 150, 143, 0.23);
+      }
+      .counter {
+        width: 100%;
+        height: 60px;
+        font-size: 20px;
+        color: #d1a636;
+        font-weight: bold;
+        padding: 20px;
+
+        color: #81968f;
+
+        box-sizing: border-box;
+
+        background: rgba(129, 150, 143, 0.17);
+      }
+    }
+    .effectedCountry {
+      width: 170px;
+      height: 100px;
+      background-color: white;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @media screen and (max-width: 428px) {
+        width: 150px;
+      }
+
+      .txt {
+        width: 100%;
+        height: 40px;
+        padding: 3px;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: bold;
+        color: #cb793a;
+        background: rgba(203, 121, 58, 0.23);
+      }
+      .counter {
+        width: 100%;
+        height: 60px;
+        font-size: 20px;
+        color: #d1a636;
+        font-weight: bold;
+        padding: 20px;
+        color: #cb793a;
+        box-sizing: border-box;
+        background: rgba(203, 121, 58, 0.17);
       }
     }
   }

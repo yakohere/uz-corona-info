@@ -4,12 +4,11 @@ import UzbekPic from "../assets/uzbekistan.png";
 import CountUp from "react-countup";
 import Moment from "react-moment";
 import "moment/locale/uz-latn";
-import LineGraph from "./LineGraph";
 
 class Uzbekistan extends Component {
   state = {
     cases: [],
-    time: null
+    time: null,
   };
 
   async componentDidMount() {
@@ -30,8 +29,7 @@ class Uzbekistan extends Component {
           gi holat.
         </div>
         <div className="all-data">
-          <div className="total">
-            <div className="txt">Kasallanganlar</div>
+          <div className="cases">
             <div className="counter">
               <CountUp
                 start={0}
@@ -39,9 +37,9 @@ class Uzbekistan extends Component {
                 duration={3}
               />
             </div>
+            <div className="txt">Tasdiqlandi</div>
           </div>
-          <div className="total">
-            <div className="txt">Bugun aniqlanganlar</div>
+          <div className="today-case">
             <div className="counter">
               <CountUp
                 start={0}
@@ -51,9 +49,10 @@ class Uzbekistan extends Component {
                 duration={3}
               />
             </div>
+
+            <div className="txt">Bugun tasdiqlangan</div>
           </div>
-          <div className="death">
-            <div className="txt">Qurbonlar</div>
+          <div className="deaths">
             <div className="counter">
               <CountUp
                 start={0}
@@ -61,23 +60,10 @@ class Uzbekistan extends Component {
                 duration={3}
               />
             </div>
+            <div className="txt">Qurbonlar</div>
           </div>
-          <div className="death">
-            <div className="txt">Bugun olamdan o`tganlar</div>
-            <div className="counter">
-              <CountUp
-                start={0}
-                end={
-                  this.state.cases.todayDeaths
-                    ? this.state.cases.todayDeaths
-                    : 0
-                }
-                duration={3}
-              />
-            </div>
-          </div>
-          <div className="death">
-            <div className="txt">Ahvoli og`irlar</div>
+
+          <div className="critical">
             <div className="counter">
               <CountUp
                 start={0}
@@ -85,9 +71,9 @@ class Uzbekistan extends Component {
                 duration={3}
               />
             </div>
+            <div className="txt">Ahvoli og`irlar</div>
           </div>
           <div className="recovered">
-            <div className="txt">Sog`ayganlar</div>
             <div className="counter">
               <CountUp
                 start={0}
@@ -97,9 +83,9 @@ class Uzbekistan extends Component {
                 duration={3}
               />
             </div>
+            <div className="txt">Sog`ayganlar</div>
           </div>
-          <div className="total">
-            <div className="txt">Kasalxonada</div>
+          <div className="atHospital">
             <div className="counter">
               <CountUp
                 start={0}
@@ -107,8 +93,10 @@ class Uzbekistan extends Component {
                 duration={3}
               />
             </div>
+
+            <div className="txt">Kasalxonada</div>
           </div>
-        </div> 
+        </div>
       </Container>
     );
   }
@@ -127,7 +115,7 @@ const Container = styled.div`
   align-items: center;
 
   .updatedTime {
-    color: #b5b038;
+    color: #e1e423;
     @media screen and (max-width: 428px) {
       margin-bottom: 10px;
     }
@@ -175,78 +163,240 @@ const Container = styled.div`
       padding: 5px;
     }
 
-    .total {
+    .cases {
       width: 170px;
-      height: 80px;
+      height: 100px;
       background-color: white;
       margin-bottom: 10px;
-      border-radius: 10px;
-      padding: 5px;
-      text-align: center;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
       @media screen and (max-width: 428px) {
         width: 150px;
       }
 
       .txt {
+        width: 100%;
+        background: rgba(63, 167, 214, 0.23);
+        height: 40px;
+        padding: 10px;
+        box-sizing: border-box;
         text-transform: uppercase;
         font-size: 16px;
         font-weight: bold;
+        color: #3fa7d6;
       }
 
       .counter {
+        width: 100%;
+        height: 60px;
         font-size: 20px;
         color: #3f8980;
         font-weight: bold;
-        padding: 10px;
+        padding: 20px;
+        color: #3fa7d6;
         box-sizing: border-box;
+        background: rgba(63, 167, 214, 0.17);
       }
     }
-    .death {
-      width: 170px;
-      height: 80px;
-      background-color: white;
-      margin-bottom: 10px;
-      padding: 5px;
-      border-radius: 10px;
 
-      @media screen and (max-width: 428px) {
-        width: 150px;
-      }
-      .txt {
-        text-transform: uppercase;
-        font-size: 16px;
-        font-weight: bold;
-      }
-      .counter {
-        font-size: 20px;
-        color: #a83434;
-        font-weight: bold;
-        padding: 10px;
-        box-sizing: border-box;
-      }
-    }
     .recovered {
-      padding: 5px;
       width: 170px;
-      height: 80px;
+      height: 100px;
       background-color: white;
       margin-bottom: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
-      border-radius: 10px;
       @media screen and (max-width: 428px) {
         width: 150px;
       }
+
       .txt {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        box-sizing: border-box;
         text-transform: uppercase;
         font-size: 16px;
         font-weight: bold;
+        color: #3a7d44;
+        background: rgba(58, 125, 68, 0.23);
       }
       .counter {
+        width: 100%;
+        height: 60px;
         font-size: 20px;
-        color: #3b7a24;
+        color: #d1a636;
         font-weight: bold;
+        padding: 20px;
+        color: #3a7d44;
+        box-sizing: border-box;
+        background: rgba(58, 125, 68, 0.17);
+      }
+    }
+    .atHospital {
+      width: 170px;
+      height: 100px;
+      background-color: white;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @media screen and (max-width: 428px) {
+        width: 150px;
+      }
+
+      .txt {
+        width: 100%;
+        height: 40px;
         padding: 10px;
         box-sizing: border-box;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: bold;
+
+        color: #62726c;
+
+        background: rgba(129, 150, 143, 0.23);
+      }
+      .counter {
+        width: 100%;
+        height: 60px;
+        font-size: 20px;
+        color: #d1a636;
+        font-weight: bold;
+        padding: 20px;
+        color: #81968f;
+        box-sizing: border-box;
+        background: rgba(129, 150, 143, 0.17);
+      }
+    }
+
+    .deaths {
+      width: 170px;
+      height: 100px;
+      background-color: white;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @media screen and (max-width: 428px) {
+        width: 150px;
+      }
+
+      .txt {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fc440f;
+        background: rgba(252, 68, 15, 0.23);
+      }
+      .counter {
+        width: 100%;
+        height: 60px;
+        font-size: 20px;
+        color: #d1a636;
+        font-weight: bold;
+        padding: 20px;
+        color: #fc440f;
+        box-sizing: border-box;
+        background: rgba(252, 68, 15, 0.17);
+      }
+    }
+
+    .critical {
+      width: 170px;
+      height: 100px;
+      background-color: white;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @media screen and (max-width: 428px) {
+        width: 150px;
+      }
+
+      .txt {
+        width: 100%;
+        height: 40px;
+        padding: 5px;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: bold;
+        color: #cb793a;
+        background: rgba(203, 121, 58, 0.23);
+      }
+      .counter {
+        width: 100%;
+        height: 60px;
+        font-size: 20px;
+        color: #d1a636;
+        font-weight: bold;
+        padding: 20px;
+        color: #cb793a;
+        box-sizing: border-box;
+        background: rgba(203, 121, 58, 0.17);
+      }
+    }
+    .today-case {
+      width: 170px;
+      height: 100px;
+      background-color: white;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @media screen and (max-width: 428px) {
+        width: 150px;
+      }
+
+      .txt {
+        width: 100%;
+        height: 40px;
+        padding: 3px;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: bold;
+
+        color: #656a73;
+
+        background: rgba(52, 64, 85, 0.23);
+      }
+      .counter {
+        width: 100%;
+        height: 60px;
+        font-size: 20px;
+        color: #d1a636;
+        font-weight: bold;
+        padding: 20px;
+        color: #656a73;
+        box-sizing: border-box;
+        background: rgba(52, 64, 85, 0.17);
       }
     }
   }

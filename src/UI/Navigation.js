@@ -31,13 +31,15 @@ const Container = styled.div`
   border-bottom: 1px solid white;
   padding: 10px;
   box-sizing: border-box;
-
+  color: white;
   .nav {
     width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    color: white;
+
     @media screen and (max-width: 428px) {
       width: 100%;
       padding: 5px;
@@ -46,6 +48,7 @@ const Container = styled.div`
       color: white;
       align-items: center;
       display: flex;
+      color: white;
 
       img {
         width: 84px;

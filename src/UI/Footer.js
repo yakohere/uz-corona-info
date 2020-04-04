@@ -8,8 +8,7 @@ const footer = () => {
 export default footer;
 
 const Container = styled.div`
-  width: 100%;
-  background: black;
+  width: 100%; 
   color: #eeeeee;
   text-align: center;
   font-family: "Montserrat", sans-serif;

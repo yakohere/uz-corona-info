@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Navigation from "./UI/Navigation";
 import TopTen from "./components/TopTen";
 import Footer from "./UI/Footer";
+import Pic from "./assets/backpic.jpg";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
 }
 
 const Container = styled.div`
-  background-color: black;
+  background: linear-gradient(90.67deg, #505050 -0.6%, #72767e 97.07%);
 `;
 
 export default App;
