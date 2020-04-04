@@ -113,9 +113,10 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid grey;
 
   .updatedTime {
-    color: #e1e423;
+    color: red;
     @media screen and (max-width: 428px) {
       margin-bottom: 10px;
     }
@@ -123,7 +124,7 @@ const Container = styled.div`
 
   .title {
     display: flex;
-    color: white;
+    color: grey;
     align-items: center;
 
     img {
@@ -173,7 +174,9 @@ const Container = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
+      -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+      -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+      box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       @media screen and (max-width: 428px) {
         width: 150px;
       }
@@ -213,7 +216,9 @@ const Container = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
+      -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+      -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+      box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       @media screen and (max-width: 428px) {
         width: 150px;
       }
@@ -251,7 +256,9 @@ const Container = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
+      -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+      -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+      box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       @media screen and (max-width: 428px) {
         width: 150px;
       }
@@ -292,7 +299,9 @@ const Container = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
+      -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+      -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+      box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       @media screen and (max-width: 428px) {
         width: 150px;
       }
@@ -331,7 +340,9 @@ const Container = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
+      -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+      -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+      box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       @media screen and (max-width: 428px) {
         width: 150px;
       }
@@ -371,7 +382,9 @@ const Container = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
+      -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+      -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+      box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       @media screen and (max-width: 428px) {
         width: 150px;
       }

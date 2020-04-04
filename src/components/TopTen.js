@@ -146,6 +146,9 @@ const Container = styled.div`
     width: 250px;
     border-radius: 10px;
     margin-bottom: 10px;
+    -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+    -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+    box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
     @media screen and (max-width: 428px) {
       width: 100%;
     }
@@ -178,6 +181,9 @@ const Container = styled.div`
     width: 250px;
     border-radius: 10px;
     margin-bottom: 10px;
+    -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+    -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+    box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
     @media screen and (max-width: 428px) {
       width: 100%;
     }
@@ -225,6 +231,9 @@ const Container = styled.div`
     width: 250px;
     border-radius: 10px;
     margin-bottom: 10px;
+    -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+    -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+    box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
     @media screen and (max-width: 428px) {
       width: 100%;
     }

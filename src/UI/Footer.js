@@ -8,8 +8,8 @@ const footer = () => {
 export default footer;
 
 const Container = styled.div`
-  width: 100%; 
-  color: #eeeeee;
+  width: 100%;
+  color: grey;
   text-align: center;
   font-family: "Montserrat", sans-serif;
   padding: 5px;
