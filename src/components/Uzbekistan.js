@@ -152,7 +152,7 @@ const Container = styled.div`
   }
 
   .all-data {
-    width: 80%;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
