@@ -8,8 +8,8 @@ const about = () => {
   return (
     <Container>
       <BlackNavigation path="./news" pathName="YANGILIKLAR" />
-      <div className="about">
-        <img src={Virus} alt="corona-logo" />
+      <div className="about-site">
+        <img className="spinned" src={Virus} alt="corona-logo" />
         <div className="txt">
           Ushbu web sayt sizga yangi kirib kelgan COVID-19 ya`ni korona virusini
           O`zbekiston va Dunyo bo`yicha ishonarli raqamlar bilan ko`rsatadi.
@@ -20,8 +20,8 @@ const about = () => {
           orada yana yangi bo`lim va ma`lumotlar kiritiladi.
         </div>
       </div>
-      <div className="about">
-        <img src={Me} alt="me" />
+      <div className="about-me">
+        <img className="me" src={Me} alt="me" />
         <div className="txt">
           Web sayt Yakhyo Ismoiljonov tomonidan tayyorlandi. Developerlar va
           Designerlarni hamkorlikga chaqiraman.
@@ -47,11 +47,12 @@ const Container = styled.div`
   padding: 20px;
   flex-direction: column;
   box-sizing: border-box;
+  background-color: #f9f9f9;
   @media screen and (max-width: 428px) {
     padding: 5px;
   }
 
-  .about {
+  .about-site {
     padding: 20px;
     width: 60%;
     display: flex;
@@ -64,9 +65,55 @@ const Container = styled.div`
       flex-direction: column;
     }
 
-    img {
+    .spinned {
       width: 20%;
       border-radius: 50%;
+      animation: rotation 10s infinite linear;
+      @media screen and (max-width: 428px) {
+        width: 50%;
+      }
+
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(359deg);
+        }
+      }
+
+      @media screen and (max-width: 428px) {
+        width: 50%;
+      }
+    }
+
+    .txt {
+      width: 70%;
+      padding: 20px;
+      text-align: center;
+      @media screen and (max-width: 428px) {
+        width: 90%;
+      }
+    }
+  }
+
+  .about-me {
+    padding: 20px;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    @media screen and (max-width: 428px) {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .me {
+      width: 20%;
+      border-radius: 50%;
+
       @media screen and (max-width: 428px) {
         width: 50%;
       }

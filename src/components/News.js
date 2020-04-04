@@ -9,7 +9,7 @@ class News extends Component {
       <Container>
         <BlackNavigation path="/malumot" pathName="MA`LUMOT" />
         <div className="scnd-cont">
-          {newsData.map(news => (
+          {newsData.map((news) => (
             <div key={news.id} className="news">
               <div className="img">
                 <img src={news.img} alt="img" />
@@ -33,6 +33,8 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
 
   .scnd-cont {
     width: 80%;
@@ -77,7 +79,6 @@ const Container = styled.div`
       padding: 10px;
 
       .title {
-        font-weight: bold;
       }
       .article {
         font-size: 15px;

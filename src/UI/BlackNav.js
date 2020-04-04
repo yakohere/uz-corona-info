@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Virus from "../assets/virus.png";
 import { Link } from "react-router-dom";
 
-const blackNavigation = props => {
+const blackNavigation = (props) => {
   return (
     <Container>
       <div className="nav">
@@ -27,9 +27,8 @@ export default blackNavigation;
 const Container = styled.div`
   width: 100%;
   display: flex;
-  background-color: black;
   justify-content: center;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid grey;
   padding: 10px;
   box-sizing: border-box;
 
@@ -44,19 +43,19 @@ const Container = styled.div`
       padding: 5px;
     }
     .logo {
-      color: white;
+      color: black;
       align-items: center;
       display: flex;
 
       img {
-        width: 84px;
-        height: 84px;
+        width: 64px;
+        height: 64px;
       }
     }
     a {
       text-decoration: none;
-      color: white;
-      border: 1px solid white;
+      color: black;
+      border: 1px solid black;
       padding: 5px;
       border-radius: 5px;
       margin-bottom: 5px;
