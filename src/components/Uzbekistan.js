@@ -4,6 +4,7 @@ import UzbekPic from "../assets/uzbekistan.png";
 import CountUp from "react-countup";
 import Moment from "react-moment";
 import "moment/locale/uz-latn";
+import LineGraph from "./LineGraph";
 
 class Uzbekistan extends Component {
   state = {
@@ -107,7 +108,7 @@ class Uzbekistan extends Component {
               />
             </div>
           </div>
-        </div>
+        </div> 
       </Container>
     );
   }

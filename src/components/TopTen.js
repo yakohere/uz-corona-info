@@ -12,7 +12,6 @@ class TopTen extends Component {
     const url = "https://corona.lmao.ninja/countries";
     const response = await fetch(url);
     const upcomingCases = await response.json();
-    delete upcomingCases[0];
 
     const topCases = upcomingCases
       .sort((a, b) => (a.cases < b.cases ? 1 : -1))
@@ -58,6 +57,8 @@ class TopTen extends Component {
       topDeaths: topDeaths,
       topRecovered: topRecovered,
     });
+
+    console.log(this.state.topCases);
   }
   render() {
     return (
