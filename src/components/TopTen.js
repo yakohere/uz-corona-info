@@ -5,55 +5,59 @@ class TopTen extends Component {
   state = {
     topCases: [],
     topDeaths: [],
-    topRecovered: []
+    topRecovered: [],
   };
 
   async componentDidMount() {
     const url = "https://corona.lmao.ninja/countries";
     const response = await fetch(url);
     const upcomingCases = await response.json();
+    delete upcomingCases[0];
+
     const topCases = upcomingCases
       .sort((a, b) => (a.cases < b.cases ? 1 : -1))
       .slice(0, 10);
 
-    topCases.find(element => element.country === "USA").country = "Amerika";
-    topCases.find(element => element.country === "Italy").country = "Italiya";
-    topCases.find(element => element.country === "Spain").country = "Ispaniya";
-    topCases.find(element => element.country === "Germany").country =
+    topCases.find((element) => element.country === "USA").country = "Amerika";
+    topCases.find((element) => element.country === "Italy").country = "Italiya";
+    topCases.find((element) => element.country === "Spain").country =
+      "Ispaniya";
+    topCases.find((element) => element.country === "Germany").country =
       "Germaniya";
-    topCases.find(element => element.country === "France").country = "Fransiya";
-    topCases.find(element => element.country === "Iran").country = "Eron";
-    topCases.find(element => element.country === "UK").country =
+    topCases.find((element) => element.country === "France").country =
+      "Fransiya";
+    topCases.find((element) => element.country === "Iran").country = "Eron";
+    topCases.find((element) => element.country === "UK").country =
       "Buyuk Britaniya";
-    topCases.find(element => element.country === "Switzerland").country =
-      "Shveytsariya";
-    topCases.find(element => element.country === "Turkey").country = "Turkiya";
+
+    topCases.find((element) => element.country === "Turkey").country =
+      "Turkiya";
 
     const topDeaths = upcomingCases
       .sort((a, b) => (a.deaths < b.deaths ? 1 : -1))
       .slice(0, 10);
 
-    topDeaths.find(element => element.country === "Netherlands").country =
+    topDeaths.find((element) => element.country === "Netherlands").country =
       "Niderlandiya";
-    topDeaths.find(element => element.country === "China").country = "Xitoy";
+    topDeaths.find((element) => element.country === "China").country = "Xitoy";
 
-    topDeaths.find(element => element.country === "Belgium").country =
+    topDeaths.find((element) => element.country === "Belgium").country =
       "Belgiya";
 
     const topRecovered = upcomingCases
       .sort((a, b) => (a.recovered < b.recovered ? 1 : -1))
       .slice(0, 10);
 
-    topRecovered.find(element => element.country === "S. Korea").country =
+    topRecovered.find((element) => element.country === "S. Korea").country =
       "Janubiy Koreya";
+    topRecovered.find((element) => element.country === "Switzerland").country =
+      "Shveytsariya";
 
     this.setState({
       topCases: topCases,
       topDeaths: topDeaths,
-      topRecovered: topRecovered
+      topRecovered: topRecovered,
     });
-
-    console.log(this.state.topCases);
   }
   render() {
     return (
@@ -62,7 +66,7 @@ class TopTen extends Component {
           <div className="top-cases">
             <div className="title-cases">Top 10 aniqlanganlar</div>
             <div className="cases-container">
-              {this.state.topCases.map(cased => (
+              {this.state.topCases.map((cased) => (
                 <div className="case" key={cased.country}>
                   <div className="country">{cased.country}</div>
                   <div className="numbers-case">
@@ -75,7 +79,7 @@ class TopTen extends Component {
           <div className="top-deaths">
             <div className="title-deaths">Top 10 Qurbonlar</div>
             <div className="cases-container">
-              {this.state.topDeaths.map(cased => (
+              {this.state.topDeaths.map((cased) => (
                 <div className="case" key={cased.country}>
                   <div className="country">{cased.country}</div>
                   <div className="numbers-death">
@@ -88,7 +92,7 @@ class TopTen extends Component {
           <div className="top-recovered">
             <div className="title-recovered">Top 10 Sog`ayganlar</div>
             <div className="cases-container">
-              {this.state.topRecovered.map(cased => (
+              {this.state.topRecovered.map((cased) => (
                 <div className="case" key={cased.country}>
                   <div className="country">{cased.country}</div>
                   <div className="numbers-recovered">
