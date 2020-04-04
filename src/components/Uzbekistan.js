@@ -131,23 +131,15 @@ const Container = styled.div`
       width: 50px;
       margin: 5px;
       position: relative;
-      animation-name: slide;
-      animation-duration: 3s;
-      animation-iteration-count: 1;
+      animation: spin 4s infinite;
     }
 
-    @keyframes slide {
+    @keyframes spin {
       0% {
-        right: 0px;
-        top: 0px;
-      }
-      50% {
-        right: 50px;
-        top: 0px;
+        transform: rotate(360deg);
       }
       100% {
-        right: 0px;
-        top: 0px;
+        transform: rotate(0deg);
       }
     }
   }
