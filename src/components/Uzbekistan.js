@@ -50,7 +50,7 @@ class Uzbekistan extends Component {
               />
             </div>
 
-            <div className="txt">Bugun tasdiqlangan</div>
+            <div className="txt">Bugun +</div>
           </div>
           <div className="deaths">
             <div className="counter">
@@ -71,7 +71,7 @@ class Uzbekistan extends Component {
                 duration={3}
               />
             </div>
-            <div className="txt">Ahvoli og`irlar</div>
+            <div className="txt">Holi og`irlar</div>
           </div>
           <div className="recovered">
             <div className="counter">
@@ -341,6 +341,8 @@ const Container = styled.div`
         height: 40px;
         padding: 5px;
         box-sizing: border-box;
+
+        padding: 10px;
         text-transform: uppercase;
         font-size: 16px;
         font-weight: bold;
@@ -377,10 +379,10 @@ const Container = styled.div`
       .txt {
         width: 100%;
         height: 40px;
-        padding: 3px;
         box-sizing: border-box;
         text-transform: uppercase;
         font-size: 16px;
+        padding: 10px;
         font-weight: bold;
 
         color: #656a73;

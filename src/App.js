@@ -20,7 +20,7 @@ function App() {
 }
 
 const Container = styled.div`
-  background: linear-gradient(90.67deg, #505050 -0.6%, #72767e 97.07%);
+  background: linear-gradient(90.67deg, #292929 -0.6%, #505052 97.07%);
 `;
 
 export default App;
