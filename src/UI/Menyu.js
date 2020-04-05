@@ -4,6 +4,12 @@ import Aux from "./Auxiliary";
 import { Link } from "react-router-dom";
 import Virus from "../assets/virus.png";
 
+import { Home } from "@styled-icons/boxicons-solid/Home";
+import { News } from "@styled-icons/boxicons-regular/News";
+import { ExclamationCircle } from "@styled-icons/heroicons-outline/ExclamationCircle";
+import { TrendingUp } from "@styled-icons/boxicons-regular/TrendingUp";
+import { InfoWithCircle } from "@styled-icons/entypo/InfoWithCircle";
+
 class Login extends Component {
   render() {
     return (
@@ -11,20 +17,30 @@ class Login extends Component {
         <Backdrop onClick={this.props.backdropClicked}></Backdrop>
         <Menyu>
           <div className="logo">
-            <img src={Virus} alt="corona-logo" />
-            COVID-19 <br />
-            STATISTIKA
+            COVID-19 STATISTIKA
+            <br />
+            uzkorona.info
           </div>
           <div className="ul">
-            <Link to="/">Bosh sahifa</Link>
-            <hr />
-            <Link to="/yangiliklar">Yangiliklar</Link>
-            <hr />
-            <Link to="/malumot">Covid-19 haqida</Link>
-            <hr />
-            <Link to="/jadval">Jadval</Link>
-            <hr />
-            <Link to="/malumot">Ma`lumot</Link>
+            <Link to="/">
+              <Hm /> Bosh sahifa
+            </Link>
+
+            <Link to="/yangiliklar">
+              <Nw /> Yangiliklar
+            </Link>
+
+            <Link to="/malumot">
+              <Ec /> Covid-19 haqida
+            </Link>
+
+            <Link to="/jadval">
+              <Tu /> Jadval
+            </Link>
+
+            <Link to="/malumot">
+              <Ic /> Ma`lumot
+            </Link>
           </div>
         </Menyu>
       </Aux>
@@ -55,35 +71,34 @@ const Menyu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   box-sizing: border-box;
 
   .logo {
-    color: black;
-    align-items: center;
-    display: flex;
-
-    color: black;
-
-    img {
-      width: 64px;
-      height: 64px;
-    }
+    width: 100%;
+    height: 95px;
+    color: white;
+    background: linear-gradient(
+      90deg,
+      rgba(104, 88, 167, 0.82) -2.13%,
+      #58a7a2 98%
+    );
+    text-align: center;
+    padding: 30px;
+    box-sizing: border-box;
   }
 
   .ul {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding: 20px;
     box-sizing: border-box;
 
     a {
       text-decoration: none;
-      padding: 5px;
+      padding: 10px;
       color: black;
+      float: right;
     }
 
     hr {
@@ -101,4 +116,34 @@ const Menyu = styled.div`
     cursor: pointer;
     border: 1px solid grey;
   }
+`;
+
+const Hm = styled(Home)`
+  height: 30px;
+  width: 30px;
+  color: #3fa7d6;
+`;
+
+const Nw = styled(News)`
+  height: 30px;
+  width: 30px;
+  color: #3a7d44;
+`;
+
+const Ec = styled(ExclamationCircle)`
+  height: 30px;
+  width: 30px;
+  color: #62726c;
+`;
+
+const Tu = styled(TrendingUp)`
+  height: 30px;
+  width: 30px;
+  color: #fc440f;
+`;
+
+const Ic = styled(InfoWithCircle)`
+  height: 30px;
+  width: 30px;
+  color: #656a73;
 `;

@@ -17,7 +17,7 @@ class TopTen extends Component {
       .sort((a, b) => (a.cases < b.cases ? 1 : -1))
       .slice(0, 10);
 
-    topCases.find((element) => element.country === "USA").country = "Amerika";
+    topCases.find((element) => element.country === "USA").country = "AQSH";
     topCases.find((element) => element.country === "Italy").country = "Italiya";
     topCases.find((element) => element.country === "Spain").country =
       "Ispaniya";

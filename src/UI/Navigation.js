@@ -35,21 +35,28 @@ const Container = styled.div`
   box-sizing: border-box;
   color: black;
   font-size: 15px;
+  background: linear-gradient(
+    90deg,
+    rgba(104, 88, 167, 0.82) -2.13%,
+    #58a7a2 98%
+  );
 
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   .nav {
     width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    color: black;
+    color: white;
     @media screen and (max-width: 428px) {
       width: 100%;
       padding: 5px;
     }
 
     .menu {
-      border: 1px solid grey;
+      border: 1px solid white;
       padding: 5px;
       border-radius: 5px;
       display: none;
@@ -73,16 +80,15 @@ const Container = styled.div`
         text-align: center;
         font-size: 15px;
         text-decoration: none;
-        color: black;
+        color: white;
         padding: 3px;
         margin-bottom: 5px;
       }
     }
     .logo {
-      color: black;
       align-items: center;
       display: flex;
-      color: black;
+      color: white;
 
       img {
         width: 64px;

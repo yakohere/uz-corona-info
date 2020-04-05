@@ -345,7 +345,6 @@ const Container = styled.div`
         height: 40px;
         padding: 5px;
         box-sizing: border-box;
-
         padding: 10px;
         text-transform: uppercase;
         font-size: 16px;
