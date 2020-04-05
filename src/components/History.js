@@ -55,8 +55,8 @@ class History extends Component {
         />
         <div className="history">
           <div className="title">
-            Bu jadval sizga O`zbekistonda kunlik kasallanganlar, qurbonlar va
-            sog`ayganlarning kunlik o`sish tarixini ko`rsatadi.
+            Ushbu jadval O`zbekistonda ma`lum bir sanada qancha kasallanganlar,
+            qurbonlar va sog`ayganlar borligni ko`rsatadi.
           </div>
           <div className="table">
             <div className="dates">

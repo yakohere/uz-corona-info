@@ -16,6 +16,7 @@ const navigation = (props) => {
           MENYU
         </div>
         <div className="ul">
+          <Link to="/">BOSH SAHIFA</Link>
           <Link to="/yangiliklar">YANGILIKLAR</Link>
           <Link to="/malumot">MA`LUMOT</Link>
           <Link to="/jadval">JADVAL</Link>
@@ -68,7 +69,7 @@ const Container = styled.div`
     }
 
     .ul {
-      width: 30%;
+      width: 40%;
       display: flex;
       flex-direction: row;
       justify-content: space-around;
