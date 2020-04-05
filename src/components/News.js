@@ -1,13 +1,34 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import newsData from "../static/newsData";
-import BlackNavigation from "../UI/BlackNav";
+import Navigation from "../UI/Navigation";
+import Menyu from "../UI/Menyu";
 
 class News extends Component {
+  state = {
+    showMenyu: false,
+  };
+
+  menyuToggleHandler = () => {
+    this.setState({ showMenyu: true });
+  };
+
+  menyuCloseHandler = () => {
+    this.setState({ showMenyu: false });
+  };
   render() {
     return (
       <Container>
-        <BlackNavigation path="/malumot" pathName="MA`LUMOT" />
+        {this.state.showMenyu ? (
+          <Menyu backdropClicked={this.menyuCloseHandler} />
+        ) : null}
+        <Navigation
+          menyuClicked={this.menyuToggleHandler}
+          path="/malumot"
+          pathName="MA`LUMOT"
+          path2="/jadval"
+          pathName2="JADVAL"
+        />
         <div className="scnd-cont">
           {newsData.map((news) => (
             <div key={news.id} className="news">

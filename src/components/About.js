@@ -1,42 +1,66 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import Me from "../assets/me.png";
 import Virus from "../assets/virus.png";
-import BlackNavigation from "../UI/BlackNav";
+import Navigation from "../UI/Navigation";
+import Menyu from "../UI/Menyu";
 
-const about = () => {
-  return (
-    <Container>
-      <BlackNavigation path="./news" pathName="YANGILIKLAR" />
-      <div className="about-site">
-        <img className="spinned" src={Virus} alt="corona-logo" />
-        <div className="txt">
-          Ushbu web sayt sizga yangi kirib kelgan COVID-19 ya`ni korona virusini
-          O`zbekiston va Dunyo bo`yicha ishonarli raqamlar bilan ko`rsatadi.
-          Barcha ma`lumotlar Jahon Sog`liqni Saqlash Vazirligi ma`lumotlar
-          bazasidan olinadi shu sababli O`zbekistondagi raqamlar JSSV tomonidan
-          tasdiqlanmaguncha statistikalar yangilanishi 10 yoki 20 minutga
-          kechikishi mumkin. Dasturlash jarayoni hali ham davom etmoqda tez
-          orada yana yangi bo`lim va ma`lumotlar kiritiladi.
-        </div>
-      </div>
-      <div className="about-me">
-        <img className="me" src={Me} alt="me" />
-        <div className="txt">
-          Web sayt Yakhyo Ismoiljonov tomonidan tayyorlandi. Developerlar va
-          Designerlarni hamkorlikga chaqiraman.
-          <a href="https://www.facebook.com/yakhyo.ismoildjanov">Facebook</a>
-          <br />
-          Ushbu sayt open source(ochiq manba) bo`lib GitHub da o`z hissangizni
-          qo`shishingiz mumkin.
-          <a href="https://github.com/devyako/corona-uzb-live">GitHub</a>
-        </div>
-      </div>
-    </Container>
-  );
-};
+class About extends Component {
+  state = {
+    showMenyu: false,
+  };
 
-export default about;
+  menyuToggleHandler = () => {
+    this.setState({ showMenyu: true });
+  };
+
+  menyuCloseHandler = () => {
+    this.setState({ showMenyu: false });
+  };
+
+  render() {
+    return (
+      <Container>
+        {this.state.showMenyu ? (
+          <Menyu backdropClicked={this.menyuCloseHandler} />
+        ) : null}
+        <Navigation
+          menyuClicked={this.menyuToggleHandler}
+          path="./yangiliklar"
+          pathName="YANGILIKLAR"
+          path2="/jadval"
+          pathName2="JADVAL"
+        />
+        <div className="about-site">
+          <img className="spinned" src={Virus} alt="corona-logo" />
+          <div className="txt">
+            Ushbu web sayt sizga yangi kirib kelgan COVID-19 ya`ni korona
+            virusini O`zbekiston va Dunyo bo`yicha ishonarli raqamlar bilan
+            ko`rsatadi. Barcha ma`lumotlar Jahon Sog`liqni Saqlash Vazirligi
+            ma`lumotlar bazasidan olinadi shu sababli O`zbekistondagi raqamlar
+            JSSV tomonidan tasdiqlanmaguncha statistikalar yangilanishi 10 yoki
+            20 minutga kechikishi mumkin. Dasturlash jarayoni hali ham davom
+            etmoqda tez orada yana yangi bo`lim va ma`lumotlar kiritiladi.
+          </div>
+        </div>
+        <div className="about-me">
+          <img className="me" src={Me} alt="me" />
+          <div className="txt">
+            Web sayt Yakhyo Ismoiljonov tomonidan tayyorlandi. Developerlar va
+            Designerlarni hamkorlikga chaqiraman.
+            <a href="https://www.facebook.com/yakhyo.ismoildjanov">Facebook</a>
+            <br />
+            Ushbu sayt open source(ochiq manba) bo`lib GitHub da o`z hissangizni
+            qo`shishingiz mumkin.
+            <a href="https://github.com/devyako/corona-uzb-live">GitHub</a>
+          </div>
+        </div>
+      </Container>
+    );
+  }
+}
+
+export default About;
 
 const Container = styled.div`
   width: 100%;
