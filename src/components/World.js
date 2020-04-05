@@ -58,7 +58,7 @@ class World extends Component {
           </div>
           <div className="effectedCountry">
             <div className="counter">{this.state.affectedCountries}</div>
-            <div className="txt">Kassalangan davlatlar</div>
+            <div className="txt">Kasallangan davlatlar</div>
           </div>
         </div>
       </Container>

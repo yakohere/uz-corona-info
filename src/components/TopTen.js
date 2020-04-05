@@ -57,8 +57,6 @@ class TopTen extends Component {
       topDeaths: topDeaths,
       topRecovered: topRecovered,
     });
-
-    console.log(this.state.topCases);
   }
   render() {
     return (

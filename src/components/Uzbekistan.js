@@ -41,6 +41,7 @@ class Uzbekistan extends Component {
           </div>
           <div className="today-case">
             <div className="counter">
+              +{" "}
               <CountUp
                 start={0}
                 end={
@@ -50,7 +51,7 @@ class Uzbekistan extends Component {
               />
             </div>
 
-            <div className="txt">Bugun +</div>
+            <div className="txt">Bugun </div>
           </div>
           <div className="deaths">
             <div className="counter">

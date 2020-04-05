@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Navigation from "./UI/Navigation";
 import TopTen from "./components/TopTen";
 import Footer from "./UI/Footer";
-import Pic from "./assets/backpic.jpg";
+import History from "./components/History";
 
 function App() {
   return (

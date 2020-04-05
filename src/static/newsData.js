@@ -4,7 +4,7 @@ export default [
     img:
       "https://foreignpolicy.com/wp-content/uploads/2020/01/Wuhan-China-outbreak-coronavirus-temperature-GettyImages-1196116329.jpg?w=800&h=533&quality=90",
     title:
-      "(4.04.20): O‘zbekistonda koronavirusga chalinganlar soni 266 nafarga yetdi",
+      "(4.04.20): O‘zbekistonda koronavirusga chalinganlar soni 266 nafarga yetdi.",
   },
   {
     id: 1,
