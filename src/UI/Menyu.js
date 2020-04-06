@@ -74,7 +74,6 @@ const Menyu = styled.div`
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-
   .logo {
     width: 100%;
     height: 95px;

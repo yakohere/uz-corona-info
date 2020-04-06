@@ -4,14 +4,14 @@ export default [
     img:
       "https://kun.uz/assets/thumbnails/9f/9fd6bdec4715efdec43ec6c8dba50f84.jpg",
     title:
-      "(6.04.20): O‘zbekistonda koronavirusga chalinganlarning ikki nafari o‘ta og‘ir ahvolda qolmoqda",
+      "(6.04.20): O‘zbekistonda koronavirusga chalinganlarning ikki nafari o‘ta og‘ir ahvolda qolmoqda.",
   },
   {
     id: 6,
     img:
       "https://kun.uz/assets/thumbnails/46/46036483b275858327fd92732307fc7e.jpg",
     title:
-      "(6.04.20): O‘zbekistonda koronavirusdan zararlanish holatlari 400ga yaqinlashdi",
+      "(6.04.20): O‘zbekistonda koronavirusdan zararlanish holatlari 400ga yaqinlashdi.",
   },
 
   {
