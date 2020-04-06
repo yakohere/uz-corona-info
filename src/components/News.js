@@ -77,6 +77,7 @@ const Container = styled.div`
     border: 1px solid grey;
     border-radius: 5px;
     overflow: hidden;
+    margin-bottom: 10px;
     @media screen and (max-width: 428px) {
       width: 90%;
       margin-bottom: 10px;

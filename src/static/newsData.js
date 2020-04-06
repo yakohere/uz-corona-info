@@ -1,5 +1,26 @@
 export default [
   {
+    id: 7,
+    img:
+      "https://kun.uz/assets/thumbnails/9f/9fd6bdec4715efdec43ec6c8dba50f84.jpg",
+    title:
+      "(6.04.20): O‘zbekistonda koronavirusga chalinganlarning ikki nafari o‘ta og‘ir ahvolda qolmoqda",
+  },
+  {
+    id: 6,
+    img:
+      "https://kun.uz/assets/thumbnails/46/46036483b275858327fd92732307fc7e.jpg",
+    title:
+      "(6.04.20): O‘zbekistonda koronavirusdan zararlanish holatlari 400ga yaqinlashdi",
+  },
+
+  {
+    id: 5,
+    img:
+      "https://static.euronews.com/articles/stories/04/58/59/42/508x344_cmsv2_5d37de56-a005-598a-95ec-9c1effde61f6-4585942.jpg",
+    title: "Tokyo 2020 Olimpiada o`yinlari korona virus sabablik  qoldirildi.",
+  },
+  {
     id: 4,
     img:
       "https://foreignpolicy.com/wp-content/uploads/2020/01/Wuhan-China-outbreak-coronavirus-temperature-GettyImages-1196116329.jpg?w=800&h=533&quality=90",
