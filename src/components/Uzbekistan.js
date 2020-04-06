@@ -282,7 +282,7 @@ const Container = styled.div`
         color: #d1a636;
         font-weight: bold;
         padding: 20px;
-        color: #3c4642;
+        color: #3C4642;
         box-sizing: border-box;
       }
     }

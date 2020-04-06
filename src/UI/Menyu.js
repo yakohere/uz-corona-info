@@ -122,7 +122,7 @@ const Menyu = styled.div`
 const Hm = styled(Home)`
   height: 30px;
   width: 30px;
-  color: #3fa7d6;
+  color: #786cc2;
 `;
 
 const Nw = styled(News)`

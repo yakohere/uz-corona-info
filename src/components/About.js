@@ -5,6 +5,11 @@ import Virus from "../assets/virus.png";
 import Navigation from "../UI/Navigation";
 import Menyu from "../UI/Menyu";
 
+import { FacebookSquare } from "@styled-icons/boxicons-logos/FacebookSquare";
+import { Github } from "@styled-icons/boxicons-logos/Github";
+import { LinkedinSquare } from "@styled-icons/boxicons-logos/LinkedinSquare";
+import { Email } from "@styled-icons/material-outlined/Email";
+
 class About extends Component {
   state = {
     showMenyu: false,
@@ -46,13 +51,20 @@ class About extends Component {
         <div className="about-me">
           <img className="me" src={Me} alt="me" />
           <div className="txt">
-            Web sayt Yakhyo Ismoiljonov tomonidan tayyorlandi. Developerlar va
-            Designerlarni hamkorlikga chaqiraman.
-            <a href="https://www.facebook.com/yakhyo.ismoildjanov">Facebook</a>
+            Web sayt Yakhyo Ismoiljonov tomonidan tayyorlandi.
             <br />
-            Ushbu sayt open source(ochiq manba) bo`lib GitHub da o`z hissangizni
-            qo`shishingiz mumkin.
-            <a href="https://github.com/devyako/corona-uzb-live">GitHub</a>
+            <a href="https://www.facebook.com/yakhyo.ismoildjanov">
+              <Fb />
+            </a>
+            <a href="mailto:yakhyoismoildjonov@gmail.com?subject=subject text">
+              <Mail />
+            </a>
+            <a href="https://www.linkedin.com/in/yako-ism/">
+              <In />
+            </a>
+            <a href="https://github.com/devyako/">
+              <Git />
+            </a>
           </div>
         </div>
       </Container>
@@ -152,4 +164,28 @@ const Container = styled.div`
       }
     }
   }
+`;
+
+const Fb = styled(FacebookSquare)`
+  color: #4267b2;
+  height: 50px;
+  width: 50px;
+  /* padding: 5px; */
+`;
+const In = styled(LinkedinSquare)`
+  height: 50px;
+  width: 50px;
+  color: #2867b2;
+`;
+
+const Git = styled(Github)`
+  height: 50px;
+  width: 50px;
+  color: black;
+`;
+
+const Mail = styled(Email)`
+  height: 50px;
+  width: 50px;
+  color: #db4437;
 `;
