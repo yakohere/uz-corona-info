@@ -13,7 +13,10 @@ class Login extends Component {
   render() {
     return (
       <Aux>
-        <Backdrop onClick={this.props.backdropClicked}></Backdrop>
+        <Backdrop
+          show={this.props.show}
+          onClick={this.props.backdropClicked}
+        ></Backdrop>
         <Menyu>
           <div className="logo">
             COVID-19 STATISTIKA
@@ -29,7 +32,7 @@ class Login extends Component {
               <Nw /> Yangiliklar
             </Link>
 
-            <Link to="/malumot">
+            <Link to="/covid19">
               <Ec /> Covid-19 haqida
             </Link>
 

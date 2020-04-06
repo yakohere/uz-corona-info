@@ -46,13 +46,7 @@ class History extends Component {
         {this.state.showMenyu ? (
           <Menyu backdropClicked={this.menyuCloseHandler} />
         ) : null}
-        <Navigation
-          menyuClicked={this.menyuToggleHandler}
-          path="/malumot"
-          pathName="MA`LUMOT"
-          path2="/yangiliklar"
-          pathName2="YANGILIKLAR"
-        />
+        <Navigation menyuClicked={this.menyuToggleHandler} />
         <div className="history">
           <div className="title">
             Ushbu jadval O`zbekistonda ma`lum bir sanada qancha kasallanganlar,

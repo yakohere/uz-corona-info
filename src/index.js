@@ -7,6 +7,7 @@ import About from "./components/About";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import News from "./components/News";
 import History from "./components/History";
+import Covid from "./components/Covid";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.render(
         <Route path="/malumot" exact component={About} />
         <Route path="/yangiliklar" exact component={News} />
         <Route path="/jadval" exact component={History} />
+        <Route path="/covid19" exact component={Covid} />
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Virus from "../assets/virus.png";
 import { Link } from "react-router-dom";
+import { MenuAltRight } from "@styled-icons/boxicons-regular/MenuAltRight";
 
 const navigation = (props) => {
   return (
@@ -13,13 +14,14 @@ const navigation = (props) => {
           STATISTIKA
         </div>
         <div onClick={props.menyuClicked} className="menu">
-          MENYU
+          <MenuLogo />
         </div>
         <div className="ul">
           <Link to="/">BOSH SAHIFA</Link>
           <Link to="/yangiliklar">YANGILIKLAR</Link>
-          <Link to="/malumot">MA`LUMOT</Link>
+          <Link to="/covid19">KASALLIK-HAQIDA</Link>
           <Link to="/jadval">JADVAL</Link>
+          <Link to="/malumot">MA`LUMOT</Link>
         </div>
       </div>
     </Container>
@@ -30,7 +32,7 @@ export default navigation;
 const Container = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   padding: 10px;
   box-sizing: border-box;
   color: black;
@@ -56,9 +58,6 @@ const Container = styled.div`
     }
 
     .menu {
-      border: 1px solid white;
-      padding: 5px;
-      border-radius: 5px;
       display: none;
       @media screen and (max-width: 428px) {
         display: flex;
@@ -68,7 +67,7 @@ const Container = styled.div`
     }
 
     .ul {
-      width: 40%;
+      width: 60%;
       display: flex;
       flex-direction: row;
       justify-content: space-around;
@@ -96,4 +95,10 @@ const Container = styled.div`
       }
     }
   }
+`;
+
+const MenuLogo = styled(MenuAltRight)`
+  width: 55px;
+  height: 55px;
+  color: white;
 `;
