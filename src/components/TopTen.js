@@ -63,7 +63,7 @@ class TopTen extends Component {
       <Container>
         <div className="top-ten">
           <div className="top-cases">
-            <div className="title-cases">Top 10 aniqlanganlar</div>
+            <div className="title-cases">Eng ko`p kasallanganlar</div>
             <div className="cases-container">
               {this.state.topCases.map((cased) => (
                 <div className="case" key={cased.country}>
@@ -76,7 +76,7 @@ class TopTen extends Component {
             </div>
           </div>
           <div className="top-deaths">
-            <div className="title-deaths">Top 10 Qurbonlar</div>
+            <div className="title-deaths">Eng ko`p o`limlar soni</div>
             <div className="cases-container">
               {this.state.topDeaths.map((cased) => (
                 <div className="case" key={cased.country}>
@@ -89,7 +89,7 @@ class TopTen extends Component {
             </div>
           </div>
           <div className="top-recovered">
-            <div className="title-recovered">Top 10 Sog`ayganlar</div>
+            <div className="title-recovered">eng ko`p Sog`ayganlar</div>
             <div className="cases-container">
               {this.state.topRecovered.map((cased) => (
                 <div className="case" key={cased.country}>
@@ -142,7 +142,7 @@ const Container = styled.div`
     background-color: white;
     color: black;
     width: 250px;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-bottom: 10px;
     -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
     -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
@@ -157,6 +157,7 @@ const Container = styled.div`
       box-sizing: border-box;
       color: white;
       text-transform: uppercase;
+      border-radius: 20px;
     }
 
     .numbers-case {
@@ -177,7 +178,7 @@ const Container = styled.div`
     background-color: white;
     color: black;
     width: 250px;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-bottom: 10px;
     -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
     -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
@@ -192,6 +193,7 @@ const Container = styled.div`
       box-sizing: border-box;
       color: white;
       text-transform: uppercase;
+      border-radius: 20px;
     }
   }
 
@@ -227,7 +229,7 @@ const Container = styled.div`
     background-color: white;
     color: black;
     width: 250px;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-bottom: 10px;
     -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
     -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
@@ -242,6 +244,7 @@ const Container = styled.div`
       box-sizing: border-box;
       color: white;
       text-transform: uppercase;
+      border-radius: 20px;
     }
     .numbers-recovered {
       color: #3b7a24;

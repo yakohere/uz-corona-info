@@ -30,20 +30,12 @@ export default navigation;
 const Container = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
-  border-bottom: 1px solid grey;
+  justify-content: center; 
   padding: 10px;
   box-sizing: border-box;
   color: black;
   font-size: 15px;
-  background: linear-gradient(
-    90deg,
-    rgba(104, 88, 167, 0.82) -2.13%,
-    #58a7a2 98%
-  );
 
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
   .nav {
     width: 90%;
     display: flex;
@@ -51,6 +43,13 @@ const Container = styled.div`
     justify-content: space-around;
     align-items: center;
     color: white;
+
+    background: linear-gradient(
+      180deg,
+      #5860a7 3.98%,
+      rgba(88, 167, 162, 0.65) 95.59%
+    );
+    border-radius: 15px;
     @media screen and (max-width: 428px) {
       width: 100%;
       padding: 5px;

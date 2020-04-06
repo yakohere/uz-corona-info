@@ -40,12 +40,12 @@ class World extends Component {
         <div className="all-data">
           <div className="cases">
             <div className="counter">{this.state.cases}</div>
-            <div className="txt">Tasdiqlandi</div>
+            <div className="txt">Kasallangan</div>
           </div>
 
           <div className="deaths">
             <div className="counter">{this.state.deaths}</div>
-            <div className="txt">Qurbonlar</div>
+            <div className="txt">O`limlar soni</div>
           </div>
 
           <div className="recovered">
@@ -54,7 +54,7 @@ class World extends Component {
           </div>
           <div className="atHospital">
             <div className="counter">{this.state.atHospital}</div>
-            <div className="txt">Kasalxonada</div>
+            <div className="txt">Davolanmoqda</div>
           </div>
           <div className="effectedCountry">
             <div className="counter">{this.state.affectedCountries}</div>
@@ -122,30 +122,32 @@ const Container = styled.div`
     .cases {
       width: 170px;
       height: 100px;
-      background-color: white;
       margin-bottom: 10px;
-      border-radius: 5px;
+      border-radius: 15px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
+      align-items: center;
+      background: rgba(63, 167, 214, 0.17);
       -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       @media screen and (max-width: 428px) {
-        width: 150px;
+        width: 160px;
       }
 
       .txt {
         width: 100%;
-        background: rgba(63, 167, 214, 0.23);
+        background: rgba(130, 189, 216, 0.18);
         height: 40px;
         padding: 10px;
         box-sizing: border-box;
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: bold;
         color: #3fa7d6;
+        border-radius: 15px;
       }
 
       .counter {
@@ -157,7 +159,6 @@ const Container = styled.div`
         padding: 20px;
         color: #3fa7d6;
         box-sizing: border-box;
-        background: rgba(63, 167, 214, 0.17);
       }
     }
     .deaths {
@@ -165,16 +166,18 @@ const Container = styled.div`
       height: 100px;
       background-color: white;
       margin-bottom: 10px;
-      border-radius: 5px;
+      border-radius: 15px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      background: rgba(252, 68, 15, 0.17);
       -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+
       @media screen and (max-width: 428px) {
-        width: 150px;
+        width: 160px;
       }
 
       .txt {
@@ -183,10 +186,12 @@ const Container = styled.div`
         padding: 10px;
         box-sizing: border-box;
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: bold;
         color: #fc440f;
-        background: rgba(252, 68, 15, 0.23);
+
+        border-radius: 15px;
+        background: rgba(219, 142, 120, 0.18);
       }
       .counter {
         width: 100%;
@@ -197,7 +202,6 @@ const Container = styled.div`
         padding: 20px;
         color: #fc440f;
         box-sizing: border-box;
-        background: rgba(252, 68, 15, 0.17);
       }
     }
     .recovered {
@@ -205,16 +209,18 @@ const Container = styled.div`
       height: 100px;
       background-color: white;
       margin-bottom: 10px;
-      border-radius: 5px;
+      border-radius: 15px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      background: rgba(58, 125, 68, 0.17);
       -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       @media screen and (max-width: 428px) {
-        width: 150px;
+        width: 160px;
       }
 
       .txt {
@@ -223,10 +229,12 @@ const Container = styled.div`
         padding: 10px;
         box-sizing: border-box;
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: bold;
         color: #3a7d44;
-        background: rgba(58, 125, 68, 0.23);
+
+        background: rgba(118, 173, 127, 0.18);
+        border-radius: 15px;
       }
       .counter {
         width: 100%;
@@ -237,7 +245,6 @@ const Container = styled.div`
         padding: 20px;
         color: #3a7d44;
         box-sizing: border-box;
-        background: rgba(58, 125, 68, 0.17);
       }
     }
     .atHospital {
@@ -245,16 +252,17 @@ const Container = styled.div`
       height: 100px;
       background-color: white;
       margin-bottom: 10px;
-      border-radius: 5px;
+      border-radius: 15px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      background: rgba(129, 150, 143, 0.17);
       -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       @media screen and (max-width: 428px) {
-        width: 150px;
+        width: 160px;
       }
 
       .txt {
@@ -263,26 +271,22 @@ const Container = styled.div`
         padding: 10px;
         box-sizing: border-box;
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: bold;
+        border-radius: 15px;
 
-        color: #62726c;
+        color: #3c4642;
 
-        background: rgba(129, 150, 143, 0.23);
+        background: rgba(129, 150, 143, 0.18);
       }
       .counter {
         width: 100%;
         height: 60px;
         font-size: 20px;
-        color: #d1a636;
+        color: #3c4642;
         font-weight: bold;
         padding: 20px;
-
-        color: #81968f;
-
         box-sizing: border-box;
-
-        background: rgba(129, 150, 143, 0.17);
       }
     }
     .effectedCountry {
@@ -290,16 +294,18 @@ const Container = styled.div`
       height: 100px;
       background-color: white;
       margin-bottom: 10px;
-      border-radius: 5px;
+      border-radius: 15px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      background: rgba(203, 121, 58, 0.17);
       -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
       @media screen and (max-width: 428px) {
-        width: 150px;
+        width: 160px;
       }
 
       .txt {
@@ -308,10 +314,12 @@ const Container = styled.div`
         padding: 3px;
         box-sizing: border-box;
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: bold;
-        color: #cb793a;
-        background: rgba(203, 121, 58, 0.23);
+        color: #c55a08;
+        background: rgba(203, 121, 58, 0.18);
+
+        border-radius: 15px;
       }
       .counter {
         width: 100%;
@@ -320,9 +328,8 @@ const Container = styled.div`
         color: #d1a636;
         font-weight: bold;
         padding: 20px;
-        color: #cb793a;
+        color: #c55a08;
         box-sizing: border-box;
-        background: rgba(203, 121, 58, 0.17);
       }
     }
   }

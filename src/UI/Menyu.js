@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Aux from "./Auxiliary";
 import { Link } from "react-router-dom";
-import Virus from "../assets/virus.png";
 
 import { Home } from "@styled-icons/boxicons-solid/Home";
 import { News } from "@styled-icons/boxicons-regular/News";
@@ -77,14 +76,16 @@ const Menyu = styled.div`
     width: 100%;
     height: 95px;
     color: white;
+
     background: linear-gradient(
-      90deg,
-      rgba(104, 88, 167, 0.82) -2.13%,
-      #58a7a2 98%
+      180deg,
+      #5860a7 3.98%,
+      rgba(88, 167, 162, 0.65) 95.59%
     );
     text-align: center;
     padding: 30px;
     box-sizing: border-box;
+    border-bottom-left-radius: 30px;
   }
 
   .ul {
