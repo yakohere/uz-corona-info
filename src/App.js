@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Navigation from "./UI/Navigation";
 import TopTen from "./components/TopTen";
 import Footer from "./UI/Footer";
-import Menyu from "./UI/Menyu";
+import MenyuComponent from "./UI/Menyu";
 
 class App extends Component {
   state = {
@@ -23,10 +23,13 @@ class App extends Component {
   render() {
     return (
       <Container>
-        {this.state.showMenyu ? (
-          <Menyu backdropClicked={this.menyuCloseHandler} />
-        ) : null}
         <Navigation menyuClicked={this.menyuToggleHandler} />
+        {this.state.showMenyu ? (
+          <MenyuComponent
+            backdropClicked={this.menyuCloseHandler}
+            menyuShow={this.state.showMenyu}
+          />
+        ) : null}
         <Uzbekistan />
         <World />
         <TopTen />

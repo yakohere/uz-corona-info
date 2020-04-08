@@ -1,13 +1,31 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import newsData from "../static/newsData";
 import Navigation from "../UI/Navigation";
 import Menyu from "../UI/Menyu";
+import axios from "axios";
 
 class News extends Component {
   state = {
     showMenyu: false,
+    posts: [],
   };
+  componentDidMount() {
+    axios
+      .get("https://corona-uzb-news.firebaseio.com/posts.json")
+      .then((res) => {
+        const fetchedPosts = [];
+        for (let key in res.data) {
+          fetchedPosts.push({
+            ...res.data[key],
+            id: key,
+          });
+        }
+        this.setState({ loading: false, posts: fetchedPosts });
+      })
+      .catch((err) => {
+        this.setState({ loading: false });
+      });
+  }
 
   menyuToggleHandler = () => {
     this.setState({ showMenyu: true });
@@ -30,13 +48,15 @@ class News extends Component {
           pathName2="JADVAL"
         />
         <div className="scnd-cont">
-          {newsData.map((news) => (
-            <div key={news.id} className="news">
+          {this.state.posts.map((post) => (
+            <div key={post.id} className="news">
               <div className="img">
-                <img src={news.img} alt="img" />
+                <img src={post.postData.imgUrl} alt="img" />
               </div>
               <div className="text">
-                <div className="title">{news.title}</div>
+                <div className="title">
+                  <strong>{post.time}:</strong> {post.postData.title}
+                </div>
               </div>
             </div>
           ))}

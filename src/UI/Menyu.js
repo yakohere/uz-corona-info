@@ -9,15 +9,12 @@ import { ExclamationCircle } from "@styled-icons/heroicons-outline/ExclamationCi
 import { TrendingUp } from "@styled-icons/boxicons-regular/TrendingUp";
 import { InfoWithCircle } from "@styled-icons/entypo/InfoWithCircle";
 
-class Login extends Component {
+class MenyuComponent extends Component {
   render() {
     return (
       <Aux>
-        <Backdrop
-          show={this.props.show}
-          onClick={this.props.backdropClicked}
-        ></Backdrop>
-        <Menyu>
+        <Backdrop onClick={this.props.backdropClicked}></Backdrop>
+        <Menyu show={this.props.menyuShow}>
           <div className="logo">
             COVID-19 STATISTIKA
             <br />
@@ -50,7 +47,7 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default MenyuComponent;
 
 const Backdrop = styled.div`
   width: 100%;
@@ -59,14 +56,14 @@ const Backdrop = styled.div`
   z-index: 200;
   left: 0;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6); 
 `;
 
 const Menyu = styled.div`
   position: fixed;
+  background-color: #f9f9f9;
   right: 0;
   bottom: 0;
-  background-color: #f9f9f9;
   width: 75%;
   z-index: 300;
   height: 100%;
@@ -74,6 +71,7 @@ const Menyu = styled.div`
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+
   .logo {
     width: 100%;
     height: 95px;
