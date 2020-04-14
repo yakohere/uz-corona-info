@@ -22,9 +22,8 @@ class News extends Component {
         }
 
         const reversePosts = fetchedPosts.sort((a, b) =>
-          a.time > b.time ? 1 : -1
+          a.id < b.id ? 1 : -1
         );
-
         this.setState({ loading: false, posts: reversePosts });
       })
       .catch((err) => {
@@ -105,7 +104,7 @@ const Container = styled.div`
     border: 1px solid grey;
     border-radius: 5px;
     overflow: hidden;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     @media screen and (max-width: 428px) {
       width: 90%;
       margin-bottom: 10px;
@@ -126,9 +125,9 @@ const Container = styled.div`
     }
 
     .text {
-      padding: 10px; 
+      padding: 10px;
 
-      .title { 
+      .title {
       }
     }
   }
