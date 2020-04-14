@@ -84,8 +84,11 @@ const Container = styled.div`
 
   .scnd-cont {
     width: 80%;
+    height: auto;
     display: flex;
     justify-content: space-around;
+
+    align-items: center;
     margin-top: 10px;
     flex-wrap: wrap;
 
@@ -102,7 +105,7 @@ const Container = styled.div`
     border: 1px solid grey;
     border-radius: 5px;
     overflow: hidden;
-    margin-bottom: 10px;
+    margin-bottom: 10px; 
     @media screen and (max-width: 428px) {
       width: 90%;
       margin-bottom: 10px;
@@ -123,12 +126,9 @@ const Container = styled.div`
     }
 
     .text {
-      padding: 10px;
+      padding: 10px; 
 
-      .title {
-      }
-      .article {
-        font-size: 15px;
+      .title { 
       }
     }
   }
