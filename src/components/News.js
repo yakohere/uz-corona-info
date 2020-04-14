@@ -20,7 +20,12 @@ class News extends Component {
             id: key,
           });
         }
-        this.setState({ loading: false, posts: fetchedPosts });
+
+        const reversePosts = fetchedPosts.sort((a, b) =>
+          a.time > b.time ? 1 : -1
+        );
+
+        this.setState({ loading: false, posts: reversePosts });
       })
       .catch((err) => {
         this.setState({ loading: false });
