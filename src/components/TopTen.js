@@ -53,8 +53,8 @@ class TopTen extends Component {
     topRecovered.find((element) => element.country === "Canada").country =
       "Kanada";
 
-    topRecovered.find((element) => element.country === "Austria").country =
-      "Avstriya";
+    topRecovered.find((element) => element.country === "Brazil").country =
+      "Brazilya";
 
     this.setState({
       topCases: topCases,
