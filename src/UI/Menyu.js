@@ -56,7 +56,7 @@ const Backdrop = styled.div`
   z-index: 200;
   left: 0;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.6); 
+  background-color: rgba(0, 0, 0, 0.6);
 `;
 
 const Menyu = styled.div`
