@@ -15,7 +15,7 @@ class World extends Component {
   };
 
   async componentDidMount() {
-    const url = "https://corona.lmao.ninja/all";
+    const url = "https://corona.lmao.ninja/v2/all";
     const response = await fetch(url);
     const cases = await response.json();
     this.setState({

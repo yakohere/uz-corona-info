@@ -9,7 +9,7 @@ class TopTen extends Component {
   };
 
   async componentDidMount() {
-    const url = "https://corona.lmao.ninja/countries";
+    const url = "https://corona.lmao.ninja/v2/countries";
     const response = await fetch(url);
     const upcomingCases = await response.json();
 
@@ -50,8 +50,8 @@ class TopTen extends Component {
     topRecovered.find((element) => element.country === "Switzerland").country =
       "Shveytsariya";
 
-    topRecovered.find((element) => element.country === "Austria").country =
-      "Avstriya";
+    topRecovered.find((element) => element.country === "Canada").country =
+      "Kanada";
 
     topRecovered.find((element) => element.country === "Brazil").country =
       "Brazilya";

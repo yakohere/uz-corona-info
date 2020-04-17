@@ -12,9 +12,9 @@ class Uzbekistan extends Component {
   };
 
   async componentDidMount() {
-    const url = "https://corona.lmao.ninja/countries/uzbekistan";
+    const url = "https://corona.lmao.ninja/v2/countries/uzbekistan";
     const response = await fetch(url);
-    const cases = await response.json();
+    const cases = await response.json(); 
     this.setState({ cases: cases, time: cases.updated });
   }
   render() {
@@ -282,7 +282,7 @@ const Container = styled.div`
         color: #d1a636;
         font-weight: bold;
         padding: 20px;
-        color: #3C4642;
+        color: #3c4642;
         box-sizing: border-box;
       }
     }
