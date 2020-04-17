@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Aux from "./Auxiliary";
 import { Link } from "react-router-dom";
-
+import StayHome from "../assets/stayhome.png";
 import { Home } from "@styled-icons/boxicons-solid/Home";
 import { News } from "@styled-icons/boxicons-regular/News";
 import { ExclamationCircle } from "@styled-icons/heroicons-outline/ExclamationCircle";
@@ -16,9 +16,8 @@ class MenyuComponent extends Component {
         <Backdrop onClick={this.props.backdropClicked}></Backdrop>
         <Menyu show={this.props.menyuShow}>
           <div className="logo">
-            COVID-19 STATISTIKA
-            <br />
-            uzkorona.info
+            <img src={StayHome} />
+            Uyda qoling!
           </div>
           <div className="ul">
             <Link to="/">
@@ -86,6 +85,10 @@ const Menyu = styled.div`
     padding: 30px;
     box-sizing: border-box;
     border-bottom-left-radius: 30px;
+
+    img {
+      width: 20%;
+    }
   }
 
   .ul {

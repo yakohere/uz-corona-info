@@ -2,7 +2,24 @@ import React from "react";
 import styled from "styled-components";
 
 const footer = () => {
-  return <Container>uzkorona.info © 2020</Container>;
+  return (
+    <Container>
+      uzkorona.info © 2020{" "}
+      <div>
+        Icons made by{" "}
+        <a
+          href="https://www.flaticon.com/authors/ultimatearm"
+          title="ultimatearm"
+        >
+          ultimatearm
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
+    </Container>
+  );
 };
 
 export default footer;
