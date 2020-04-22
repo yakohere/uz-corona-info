@@ -1,70 +1,73 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import WorldPic from "../assets/world.png";
 import Moment from "react-moment";
 import "moment/locale/uz-latn";
+import * as styles from "../UI/SameStyling";
 
-class World extends Component {
-  state = {
-    cases: "",
-    deaths: "",
-    recovered: "",
-    atHospital: "",
-    affectedCountries: "",
-    time: null,
-  };
+const World = () => {
+  const [cases, setCases] = useState();
+  const [deaths, setDeaths] = useState();
+  const [recovered, setRecovered] = useState();
+  const [active, setActive] = useState();
+  const [affectedCountries, setAffectedCountries] = useState();
+  const [tests, setTests] = useState();
+  const [time, setTime] = useState(null);
 
-  async componentDidMount() {
-    const url = "https://corona.lmao.ninja/v2/all";
-    const response = await fetch(url);
-    const cases = await response.json();
-    this.setState({
-      cases: cases.cases.toLocaleString("fi-FI"),
-      deaths: cases.deaths.toLocaleString("fi-FI"),
-      recovered: cases.recovered.toLocaleString("fi-FI"),
-      atHospital: cases.active.toLocaleString("fi-FI"),
-      affectedCountries: cases.affectedCountries,
-      time: cases.updated,
-    });
-  }
-  render() {
-    return (
-      <Container>
-        <div className="title">
-          <h1>Dunyo Bo`yicha</h1>
-          <img src={WorldPic} alt="img" />
+  useEffect(() => {
+    fetch("https://corona.lmao.ninja/v2/all")
+      .then((response) => response.json())
+      .then((responseData) => {
+        setCases(responseData.cases.toLocaleString("fi-FI"));
+        setDeaths(responseData.deaths.toLocaleString("fi-FI"));
+        setRecovered(responseData.recovered.toLocaleString("fi-FI"));
+        setActive(responseData.active.toLocaleString("fi-FI"));
+        setTests(responseData.tests.toLocaleString("fi-FI"));
+        setAffectedCountries(responseData.affectedCountries);
+        setTime(responseData.updated);
+      });
+  }, []);
+
+  return (
+    <Container>
+      <div className="title">
+        <h1>Dunyo Bo`yicha</h1>
+        <img src={WorldPic} alt="img" />
+      </div>
+      <div className="updatedTime">
+        <Moment calendar>{time}</Moment>gi holat.
+      </div>
+      <div className="all-data">
+        <div className="cases">
+          <div className="counter">{cases}</div>
+          <div className="txt">Kasallangan</div>
         </div>
-        <div className="updatedTime">
-          <Moment calendar>{this.state.time}</Moment>gi holat.
-        </div>
-        <div className="all-data">
-          <div className="cases">
-            <div className="counter">{this.state.cases}</div>
-            <div className="txt">Kasallangan</div>
-          </div>
 
-          <div className="deaths">
-            <div className="counter">{this.state.deaths}</div>
-            <div className="txt">O`limlar soni</div>
-          </div>
-
-          <div className="recovered">
-            <div className="counter">{this.state.recovered}</div>
-            <div className="txt">Sog`ayganlar</div>
-          </div>
-          <div className="atHospital">
-            <div className="counter">{this.state.atHospital}</div>
-            <div className="txt">Davolanmoqda</div>
-          </div>
-          <div className="effectedCountry">
-            <div className="counter">{this.state.affectedCountries}</div>
-            <div className="txt">Kasallangan davlatlar</div>
-          </div>
+        <div className="deaths">
+          <div className="counter">{deaths}</div>
+          <div className="txt">O`limlar soni</div>
         </div>
-      </Container>
-    );
-  }
-}
+
+        <div className="recovered">
+          <div className="counter">{recovered}</div>
+          <div className="txt">Sog`ayganlar</div>
+        </div>
+        <div className="atHospital">
+          <div className="counter">{active}</div>
+          <div className="txt">Davolanmoqda</div>
+        </div>
+        <div className="effectedCountry">
+          <div className="counter">{affectedCountries}</div>
+          <div className="txt">Kasallangan davlatlar</div>
+        </div>
+        <div className="test">
+          <div className="counter">{tests}</div>
+          <div className="txt">Test Topshirganlar</div>
+        </div>
+      </div>
+    </Container>
+  );
+};
 
 export default World;
 
@@ -120,216 +123,86 @@ const Container = styled.div`
       padding: 5px;
     }
     .cases {
-      width: 170px;
-      height: 100px;
-      margin-bottom: 10px;
-      border-radius: 15px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       background: rgba(63, 167, 214, 0.17);
-      -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-      -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-      box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-      @media screen and (max-width: 428px) {
-        width: 160px;
-      }
-
+      ${styles.sameStylingBox}
       .txt {
-        width: 100%;
         background: rgba(130, 189, 216, 0.18);
-        height: 40px;
-        padding: 10px;
-        box-sizing: border-box;
-        text-transform: uppercase;
-        font-size: 15px;
-        font-weight: bold;
         color: #3fa7d6;
-        border-radius: 15px;
+        ${styles.sameStylingText}
       }
-
       .counter {
-        width: 100%;
-        height: 60px;
-        font-size: 20px;
-        color: #3f8980;
-        font-weight: bold;
-        padding: 20px;
         color: #3fa7d6;
-        box-sizing: border-box;
+        ${styles.sameStylingCounter}
       }
     }
+
     .deaths {
-      width: 170px;
-      height: 100px;
-      background-color: white;
-      margin-bottom: 10px;
-      border-radius: 15px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       background: rgba(252, 68, 15, 0.17);
-      -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-      -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-      box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-
-      @media screen and (max-width: 428px) {
-        width: 160px;
-      }
-
+      ${styles.sameStylingBox}
       .txt {
-        width: 100%;
-        height: 40px;
-        padding: 10px;
-        box-sizing: border-box;
-        text-transform: uppercase;
-        font-size: 15px;
-        font-weight: bold;
         color: #fc440f;
-
-        border-radius: 15px;
         background: rgba(219, 142, 120, 0.18);
+        ${styles.sameStylingText}
       }
       .counter {
-        width: 100%;
-        height: 60px;
-        font-size: 20px;
-        color: #d1a636;
-        font-weight: bold;
-        padding: 20px;
         color: #fc440f;
-        box-sizing: border-box;
+        ${styles.sameStylingCounter}
       }
     }
+
     .recovered {
-      width: 170px;
-      height: 100px;
-      background-color: white;
-      margin-bottom: 10px;
-      border-radius: 15px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
       background: rgba(58, 125, 68, 0.17);
-      -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-      -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-      box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-      @media screen and (max-width: 428px) {
-        width: 160px;
-      }
-
+      ${styles.sameStylingBox}
       .txt {
-        width: 100%;
-        height: 40px;
-        padding: 10px;
-        box-sizing: border-box;
-        text-transform: uppercase;
-        font-size: 15px;
-        font-weight: bold;
         color: #3a7d44;
-
         background: rgba(118, 173, 127, 0.18);
-        border-radius: 15px;
+        ${styles.sameStylingText}
       }
       .counter {
-        width: 100%;
-        height: 60px;
-        font-size: 20px;
-        color: #d1a636;
-        font-weight: bold;
-        padding: 20px;
         color: #3a7d44;
-        box-sizing: border-box;
+        ${styles.sameStylingCounter}
       }
     }
     .atHospital {
-      width: 170px;
-      height: 100px;
-      background-color: white;
-      margin-bottom: 10px;
-      border-radius: 15px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       background: rgba(129, 150, 143, 0.17);
-      -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-      -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-      box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-      @media screen and (max-width: 428px) {
-        width: 160px;
-      }
-
+      ${styles.sameStylingBox}
       .txt {
-        width: 100%;
-        height: 40px;
-        padding: 10px;
-        box-sizing: border-box;
-        text-transform: uppercase;
-        font-size: 15px;
-        font-weight: bold;
-        border-radius: 15px;
-
         color: #3c4642;
-
         background: rgba(129, 150, 143, 0.18);
+        ${styles.sameStylingText}
       }
       .counter {
-        width: 100%;
-        height: 60px;
-        font-size: 20px;
         color: #3c4642;
-        font-weight: bold;
-        padding: 20px;
-        box-sizing: border-box;
+        ${styles.sameStylingCounter}
       }
     }
     .effectedCountry {
-      width: 170px;
-      height: 100px;
-      background-color: white;
-      margin-bottom: 10px;
-      border-radius: 15px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
       background: rgba(203, 121, 58, 0.17);
-      -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-      -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-      box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-      @media screen and (max-width: 428px) {
-        width: 160px;
-      }
-
+      ${styles.sameStylingBox}
       .txt {
-        width: 100%;
-        height: 40px;
-        padding: 3px;
-        box-sizing: border-box;
-        text-transform: uppercase;
-        font-size: 15px;
-        font-weight: bold;
         color: #c55a08;
         background: rgba(203, 121, 58, 0.18);
-
-        border-radius: 15px;
+        ${styles.sameStylingText}
+        padding: 5px;
       }
       .counter {
-        width: 100%;
-        height: 60px;
-        font-size: 20px;
-        color: #d1a636;
-        font-weight: bold;
-        padding: 20px;
         color: #c55a08;
-        box-sizing: border-box;
+        ${styles.sameStylingCounter}
+      }
+    }
+
+    .test {
+      background: rgba(103, 221, 58, 0.17);
+      ${styles.sameStylingBox}
+      .txt {
+        color: #c55a08;
+        background: rgba(203, 121, 58, 0.18);
+        ${styles.sameStylingText}
+        padding: 5px;
+      }
+      .counter {
+        color: #c55a08;
+        ${styles.sameStylingCounter}
       }
     }
   }
