@@ -13,8 +13,7 @@ const Uzbekistan = () => {
     fetch("https://corona.lmao.ninja/v2/countries/uzbekistan")
       .then((response) => response.json())
       .then((responseData) => {
-        setCases(responseData);
-        console.log(responseData);
+        setCases(responseData); 
       });
   }, []);
 

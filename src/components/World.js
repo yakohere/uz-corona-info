@@ -183,7 +183,7 @@ const Container = styled.div`
         color: #c55a08;
         background: rgba(203, 121, 58, 0.18);
         ${styles.sameStylingText}
-        padding: 5px;
+        padding: 3px;
       }
       .counter {
         color: #c55a08;
@@ -192,16 +192,16 @@ const Container = styled.div`
     }
 
     .test {
-      background: rgba(103, 221, 58, 0.17);
+      background: rgba(58, 125, 68, 0.17);
       ${styles.sameStylingBox}
       .txt {
-        color: #c55a08;
-        background: rgba(203, 121, 58, 0.18);
+        color: #3a7d44;
+        background: rgba(118, 173, 127, 0.18);
         ${styles.sameStylingText}
-        padding: 5px;
+        padding: 3px;
       }
       .counter {
-        color: #c55a08;
+        color: #3a7d44;
         ${styles.sameStylingCounter}
       }
     }
