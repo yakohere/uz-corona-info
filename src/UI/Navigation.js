@@ -59,7 +59,7 @@ const Container = styled.div`
 
     .menu {
       display: none;
-      @media screen and (max-width: 428px) {
+      @media screen and (max-width: 728px) {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -71,7 +71,7 @@ const Container = styled.div`
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      @media screen and (max-width: 428px) {
+      @media screen and (max-width: 728px) {
         display: none;
       }
 

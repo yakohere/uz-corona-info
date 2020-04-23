@@ -16,7 +16,7 @@ class MenyuComponent extends Component {
         <Backdrop onClick={this.props.backdropClicked}></Backdrop>
         <Menyu show={this.props.menyuShow}>
           <div className="logo">
-            <img src={StayHome} />
+            <img src={StayHome} alt="home" />
             Uyda qoling!
           </div>
           <div className="ul">

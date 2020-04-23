@@ -4,7 +4,7 @@ import UzbekPic from "../assets/uzbekistan.png";
 import CountUp from "react-countup";
 import Moment from "react-moment";
 import "moment/locale/uz-latn";
-import * as styles from "../UI/SameStyling";
+import * as styles from "../style/SameStyling";
 
 const Uzbekistan = () => {
   const [cases, setCases] = useState([]);
@@ -13,7 +13,7 @@ const Uzbekistan = () => {
     fetch("https://corona.lmao.ninja/v2/countries/uzbekistan")
       .then((response) => response.json())
       .then((responseData) => {
-        setCases(responseData); 
+        setCases(responseData);
       });
   }, []);
 

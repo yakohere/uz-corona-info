@@ -3,7 +3,7 @@ import styled from "styled-components";
 import WorldPic from "../assets/world.png";
 import Moment from "react-moment";
 import "moment/locale/uz-latn";
-import * as styles from "../UI/SameStyling";
+import * as styles from "../style/SameStyling";
 
 const World = () => {
   const [cases, setCases] = useState();
