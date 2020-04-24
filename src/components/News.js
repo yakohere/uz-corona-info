@@ -3,13 +3,16 @@ import styled from "styled-components";
 import Navigation from "../UI/Navigation";
 import Menyu from "../UI/Menyu";
 import axios from "axios";
+import Spinner from "../UI/Spinner/Spinner";
 
 class News extends Component {
   state = {
     showMenyu: false,
     posts: [],
+    loading: false,
   };
   componentDidMount() {
+    this.setState({ loading: true });
     axios
       .get("https://corona-uzb-news.firebaseio.com/posts.json")
       .then((res) => {
@@ -39,34 +42,41 @@ class News extends Component {
     this.setState({ showMenyu: false });
   };
   render() {
-    return (
-      <Container>
-        {this.state.showMenyu ? (
-          <Menyu backdropClicked={this.menyuCloseHandler} />
-        ) : null}
-        <Navigation
-          menyuClicked={this.menyuToggleHandler}
-          path="/malumot"
-          pathName="MA`LUMOT"
-          path2="/jadval"
-          pathName2="JADVAL"
-        />
-        <div className="scnd-cont">
-          {this.state.posts.map((post) => (
-            <div key={post.id} className="news">
-              <div className="img">
-                <img src={post.postData.imgUrl} alt="img" />
-              </div>
-              <div className="text">
-                <div className="title">
-                  <strong>{post.time}:</strong> {post.postData.title}
+    let news;
+    if (this.state.loading) {
+      news = <Spinner />;
+    } else {
+      news = (
+        <Container>
+          {this.state.showMenyu ? (
+            <Menyu backdropClicked={this.menyuCloseHandler} />
+          ) : null}
+          <Navigation
+            menyuClicked={this.menyuToggleHandler}
+            path="/malumot"
+            pathName="MA`LUMOT"
+            path2="/jadval"
+            pathName2="JADVAL"
+          />
+          <div className="scnd-cont">
+            {this.state.posts.map((post) => (
+              <div key={post.id} className="news">
+                <div className="img">
+                  <img src={post.postData.imgUrl} alt="img" />
+                </div>
+                <div className="text">
+                  <div className="title">
+                    <strong>{post.time}:</strong> {post.postData.title}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </Container>
-    );
+            ))}
+          </div>
+        </Container>
+      );
+    }
+
+    return <div>{news}</div>;
   }
 }
 
