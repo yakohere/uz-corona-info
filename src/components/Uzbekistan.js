@@ -5,97 +5,108 @@ import CountUp from "react-countup";
 import Moment from "react-moment";
 import "moment/locale/uz-latn";
 import * as styles from "../style/SameStyling";
+import Spinner from "../UI/Spinner/Spinner";
 
 const Uzbekistan = () => {
   const [cases, setCases] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetch("https://corona.lmao.ninja/v2/countries/uzbekistan")
       .then((response) => response.json())
       .then((responseData) => {
         setCases(responseData);
+        setLoading(false);
       });
   }, []);
 
   return (
-    <Container>
-      <div className="title">
-        <h1>O`zbekiston</h1>
-        <img src={UzbekPic} alt="img" />
-      </div>
-      <div className="updatedTime">
-        <Moment calendar>{cases.updated}</Moment>
-        gi holat.
-      </div>
-      <div className="all-data">
-        <div className="cases">
-          <div className="counter">
-            <CountUp
-              start={0}
-              end={cases.cases ? cases.cases : 0}
-              duration={3}
-            />
+    <div>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <Container>
+          <div className="title">
+            <h1>O`zbekiston</h1>
+            <img src={UzbekPic} alt="img" />
           </div>
-          <div className="txt">Kasallanganlar</div>
-        </div>
-        <div className="today-case">
-          <div className="counter">
-            +{" "}
-            <CountUp
-              start={0}
-              end={cases.todayCases ? cases.todayCases : 0}
-              duration={3}
-            />
+          <div className="updatedTime">
+            <Moment calendar>{cases.updated}</Moment>
+            gi holat.
           </div>
+          <div className="all-data">
+            <div className="cases">
+              <div className="counter">
+                <CountUp
+                  start={0}
+                  end={cases.cases ? cases.cases : 0}
+                  duration={3}
+                />
+              </div>
+              <div className="txt">Kasallanganlar</div>
+            </div>
+            <div className="today-case">
+              <div className="counter">
+                +{" "}
+                <CountUp
+                  start={0}
+                  end={cases.todayCases ? cases.todayCases : 0}
+                  duration={3}
+                />
+              </div>
 
-          <div className="txt">Bugun </div>
-        </div>
-        <div className="deaths">
-          <div className="counter">
-            <CountUp
-              start={0}
-              end={cases.deaths ? cases.deaths : 0}
-              duration={3}
-            />
-          </div>
-          <div className="txt">O`limlar soni</div>
-        </div>
+              <div className="txt">Bugun </div>
+            </div>
+            <div className="deaths">
+              <div className="counter">
+                <CountUp
+                  start={0}
+                  end={cases.deaths ? cases.deaths : 0}
+                  duration={3}
+                />
+              </div>
+              <div className="txt">O`limlar soni</div>
+            </div>
 
-        <div className="critical">
-          <div className="counter">
-            <CountUp
-              start={0}
-              end={cases.critical ? cases.critical : 0}
-              duration={3}
-            />
-          </div>
-          <div className="txt">Ahvoli og`irlar</div>
-        </div>
+            <div className="critical">
+              <div className="counter">
+                <CountUp
+                  start={0}
+                  end={cases.critical ? cases.critical : 0}
+                  duration={3}
+                />
+              </div>
+              <div className="txt">Ahvoli og`irlar</div>
+            </div>
 
-        <div className="recovered">
-          <div className="counter">
-            <CountUp
-              start={0}
-              end={cases.recovered ? cases.recovered : 0}
-              duration={3}
-            />
+            <div className="recovered">
+              <div className="counter">
+                <CountUp
+                  start={0}
+                  end={cases.recovered ? cases.recovered : 0}
+                  duration={3}
+                />
+              </div>
+              <div className="txt">Sog`ayganlar</div>
+            </div>
+            <div className="atHospital">
+              <div className="counter">
+                <CountUp
+                  start={0}
+                  end={cases.active ? cases.active : 0}
+                  duration={3}
+                />
+              </div>
+              <div className="txt">davolanmoqda</div>
+            </div>
           </div>
-          <div className="txt">Sog`ayganlar</div>
-        </div>
-        <div className="atHospital">
-          <div className="counter">
-            <CountUp
-              start={0}
-              end={cases.active ? cases.active : 0}
-              duration={3}
-            />
-          </div>
-          <div className="txt">davolanmoqda</div>
-        </div>
-      </div>
-    </Container>
+        </Container>
+      )}
+    </div>
   );
 };
+
 export default Uzbekistan;
 
 const Container = styled.div`

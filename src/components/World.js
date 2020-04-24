@@ -4,6 +4,7 @@ import WorldPic from "../assets/world.png";
 import Moment from "react-moment";
 import "moment/locale/uz-latn";
 import * as styles from "../style/SameStyling";
+import Spinner from "../UI/Spinner/Spinner";
 
 const World = () => {
   const [cases, setCases] = useState();
@@ -13,8 +14,10 @@ const World = () => {
   const [affectedCountries, setAffectedCountries] = useState();
   const [tests, setTests] = useState();
   const [time, setTime] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetch("https://corona.lmao.ninja/v2/all")
       .then((response) => response.json())
       .then((responseData) => {
@@ -25,47 +28,54 @@ const World = () => {
         setTests(responseData.tests.toLocaleString("fi-FI"));
         setAffectedCountries(responseData.affectedCountries);
         setTime(responseData.updated);
+        setLoading(false);
       });
   }, []);
 
   return (
-    <Container>
-      <div className="title">
-        <h1>Dunyo Bo`yicha</h1>
-        <img src={WorldPic} alt="img" />
-      </div>
-      <div className="updatedTime">
-        <Moment calendar>{time}</Moment>gi holat.
-      </div>
-      <div className="all-data">
-        <div className="cases">
-          <div className="counter">{cases}</div>
-          <div className="txt">Kasallangan</div>
-        </div>
+    <div>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <Container>
+          <div className="title">
+            <h1>Dunyo Bo`yicha</h1>
+            <img src={WorldPic} alt="img" />
+          </div>
+          <div className="updatedTime">
+            <Moment calendar>{time}</Moment>gi holat.
+          </div>
+          <div className="all-data">
+            <div className="cases">
+              <div className="counter">{cases}</div>
+              <div className="txt">Kasallangan</div>
+            </div>
 
-        <div className="deaths">
-          <div className="counter">{deaths}</div>
-          <div className="txt">O`limlar soni</div>
-        </div>
+            <div className="deaths">
+              <div className="counter">{deaths}</div>
+              <div className="txt">O`limlar soni</div>
+            </div>
 
-        <div className="recovered">
-          <div className="counter">{recovered}</div>
-          <div className="txt">Sog`ayganlar</div>
-        </div>
-        <div className="atHospital">
-          <div className="counter">{active}</div>
-          <div className="txt">Davolanmoqda</div>
-        </div>
-        <div className="effectedCountry">
-          <div className="counter">{affectedCountries}</div>
-          <div className="txt">Kasallangan davlatlar</div>
-        </div>
-        <div className="test">
-          <div className="counter">{tests}</div>
-          <div className="txt">Test Topshirganlar</div>
-        </div>
-      </div>
-    </Container>
+            <div className="recovered">
+              <div className="counter">{recovered}</div>
+              <div className="txt">Sog`ayganlar</div>
+            </div>
+            <div className="atHospital">
+              <div className="counter">{active}</div>
+              <div className="txt">Davolanmoqda</div>
+            </div>
+            <div className="effectedCountry">
+              <div className="counter">{affectedCountries}</div>
+              <div className="txt">Kasallangan davlatlar</div>
+            </div>
+            <div className="test">
+              <div className="counter">{tests}</div>
+              <div className="txt">Test Topshirganlar</div>
+            </div>
+          </div>
+        </Container>
+      )}
+    </div>
   );
 };
 
