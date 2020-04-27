@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Me from "../assets/me.png";
 import Virus from "../assets/virus.png";
 import Navigation from "../UI/Navigation";
 import Menyu from "../UI/Menyu";
@@ -49,7 +48,6 @@ class About extends Component {
           </div>
         </div>
         <div className="about-me">
-          <img className="me" src={Me} alt="me" />
           <div className="txt">
             Web sayt Yakhyo Ismoiljonov tomonidan tayyorlandi.
             <br />
