@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Uzbekistan from "./components/Uzbekistan";
 import World from "./components/World";
-import styled from "styled-components";
 import Navigation from "./UI/Navigation";
 import TopTen from "./components/TopTen";
 import Footer from "./UI/Footer";
@@ -22,7 +21,7 @@ class App extends Component {
 
   render() {
     return (
-      <Container>
+      <Fragment>
         <Navigation menyuClicked={this.menyuToggleHandler} />
         {this.state.showMenyu ? (
           <MenyuComponent
@@ -34,13 +33,9 @@ class App extends Component {
         <World />
         <TopTen />
         <Footer />
-      </Container>
+      </Fragment>
     );
   }
 }
-
-const Container = styled.div`
-  background-color: #f9f9f9;
-`;
 
 export default App;
