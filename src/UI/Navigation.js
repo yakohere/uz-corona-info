@@ -102,9 +102,3 @@ const Container = styled.div`
     }
   }
 `;
-
-const MenuLogo = styled(MenuAltRight)`
-  width: 55px;
-  height: 55px;
-  color: white;
-`;

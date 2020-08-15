@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import UzbekPic from "../assets/uzbekistan.jpg";
-import CountUp from "react-countup";
+import UzbekPic from "../assets/uzbekistan.png";
 import Moment from "react-moment";
 import "moment/locale/uz-latn";
-import * as styles from "../style/SameStyling";
 import Spinner from "../UI/Spinner/Spinner";
 
 const Uzbekistan = () => {
@@ -104,9 +102,8 @@ const Container = styled.div`
     align-items: center;
 
     img {
-      width: 64px;
-      height: auto;
-      margin: 10px;
+      width: 50px;
+      margin: 5px;
     }
   }
 
@@ -128,6 +125,7 @@ const Container = styled.div`
       border-radius: 5px;
       overflow: hidden;
       display: flex;
+      margin-bottom: 20px;
       flex-direction: column;
       justify-content: center;
       align-items: center;

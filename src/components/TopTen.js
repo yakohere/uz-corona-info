@@ -110,11 +110,9 @@ const Container = styled.div`
     background-color: white;
     color: black;
     width: 250px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    -webkit-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-    -moz-box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
-    box-shadow: 10px 10px 11px 0px rgba(186, 186, 186, 1);
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 5px 5px rgba(164, 164, 164, 0.25);
+
     @media screen and (max-width: 428px) {
       width: 100%;
     }
@@ -132,7 +130,6 @@ const Container = styled.div`
       box-sizing: border-box;
       color: white;
       text-transform: uppercase;
-      border-radius: 20px;
     }
 
     .numbers-case {
@@ -149,7 +146,6 @@ const Container = styled.div`
       box-sizing: border-box;
       color: white;
       text-transform: uppercase;
-      border-radius: 20px;
     }
     .numbers-recovered {
       color: #3b7a24;
@@ -165,7 +161,6 @@ const Container = styled.div`
       box-sizing: border-box;
       color: white;
       text-transform: uppercase;
-      border-radius: 20px;
     }
 
     .numbers-death {
