@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import UzbekPic from "../assets/uzbekistan.png";
+import UzbekPic from "../assets/uzbekistan.jpg";
 import CountUp from "react-countup";
 import Moment from "react-moment";
 import "moment/locale/uz-latn";
@@ -35,69 +35,33 @@ const Uzbekistan = () => {
             <Moment calendar>{cases.updated}</Moment>
             gi holat.
           </div>
+
           <div className="all-data">
-            <div className="cases">
-              <div className="counter">
-                <CountUp
-                  start={0}
-                  end={cases.cases ? cases.cases : 0}
-                  duration={3}
-                />
-              </div>
+            <div className="case-box">
+              <div className="counter">{cases.cases?.toLocaleString()}</div>
               <div className="txt">Kasallanganlar</div>
             </div>
-            <div className="today-case">
+
+            <div className="case-box">
               <div className="counter">
-                +{" "}
-                <CountUp
-                  start={0}
-                  end={cases.todayCases ? cases.todayCases : 0}
-                  duration={3}
-                />
+                +{cases.todayCases?.toLocaleString()}
               </div>
 
               <div className="txt">Bugun </div>
             </div>
-            <div className="deaths">
-              <div className="counter">
-                <CountUp
-                  start={0}
-                  end={cases.deaths ? cases.deaths : 0}
-                  duration={3}
-                />
-              </div>
+
+            <div className="case-box">
+              <div className="counter">{cases.deaths?.toLocaleString()}</div>
               <div className="txt">O`limlar soni</div>
             </div>
 
-            <div className="critical">
-              <div className="counter">
-                <CountUp
-                  start={0}
-                  end={cases.critical ? cases.critical : 0}
-                  duration={3}
-                />
-              </div>
-              <div className="txt">Ahvoli og`irlar</div>
-            </div>
-
-            <div className="recovered">
-              <div className="counter">
-                <CountUp
-                  start={0}
-                  end={cases.recovered ? cases.recovered : 0}
-                  duration={3}
-                />
-              </div>
+            <div className="case-box">
+              <div className="counter">{cases.recovered?.toLocaleString()}</div>
               <div className="txt">Sog`ayganlar</div>
             </div>
-            <div className="atHospital">
-              <div className="counter">
-                <CountUp
-                  start={0}
-                  end={cases.active ? cases.active : 0}
-                  duration={3}
-                />
-              </div>
+
+            <div className="case-box">
+              <div className="counter">{cases.active?.toLocaleString()}</div>
               <div className="txt">davolanmoqda</div>
             </div>
           </div>
@@ -120,6 +84,13 @@ const Container = styled.div`
   align-items: center;
   border-bottom: 1px solid grey;
 
+  .info {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .updatedTime {
     color: red;
     @media screen and (max-width: 428px) {
@@ -133,19 +104,9 @@ const Container = styled.div`
     align-items: center;
 
     img {
-      width: 50px;
-      margin: 5px;
-      position: relative;
-      animation: spin 4s infinite;
-    }
-
-    @keyframes spin {
-      0% {
-        transform: rotate(360deg);
-      }
-      100% {
-        transform: rotate(0deg);
-      }
+      width: 64px;
+      height: auto;
+      margin: 10px;
     }
   }
 
@@ -161,85 +122,37 @@ const Container = styled.div`
       padding: 5px;
     }
 
-    .cases {
-      background: rgba(63, 167, 214, 0.17);
-      ${styles.sameStylingBox}
-      .txt {
-        background: rgba(130, 189, 216, 0.13);
-        color: #3fa7d6;
-        ${styles.sameStylingText}
+    .case-box {
+      width: 185px;
+      height: 85px;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 0px 5px 5px rgba(164, 164, 164, 0.25);
+      @media screen and (max-width: 428px) {
+        width: 160px;
       }
-      .counter {
-        color: #3fa7d6;
-        ${styles.sameStylingCounter}
-      }
-    }
 
-    .recovered {
-      background: rgba(58, 125, 68, 0.17);
-      ${styles.sameStylingBox}
       .txt {
-        color: #3a7d44;
-        background: rgba(118, 173, 127, 0.18);
-        ${styles.sameStylingText}
+        color: #838383;
+        width: 100%;
+        border-radius: 15px;
+        height: 40px;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        font-size: 17px;
+        font-weight: bold;
       }
       .counter {
-        color: #3a7d44;
-        ${styles.sameStylingCounter}
-      }
-    }
-    .atHospital {
-      background: rgba(129, 150, 143, 0.17);
-      ${styles.sameStylingBox}
-      .txt {
-        color: #3c4642;
-        background: rgba(129, 150, 143, 0.18);
-        ${styles.sameStylingText}
-      }
-      .counter {
-        color: #3c4642;
-        ${styles.sameStylingCounter}
-      }
-    }
-
-    .deaths {
-      background: rgba(252, 68, 15, 0.17);
-      ${styles.sameStylingBox}
-      .txt {
-        color: #fc440f;
-        background: rgba(219, 142, 120, 0.17);
-        ${styles.sameStylingText}
-      }
-      .counter {
-        color: #fc440f;
-        ${styles.sameStylingCounter}
-      }
-    }
-
-    .critical {
-      background: rgba(203, 121, 58, 0.17);
-      ${styles.sameStylingBox}
-      .txt {
-        color: #c55a08;
-        background: rgba(203, 121, 58, 0.18);
-        ${styles.sameStylingText}
-      }
-      .counter {
-        color: #c55a08;
-        ${styles.sameStylingCounter}
-      }
-    }
-    .today-case {
-      background: rgba(171, 171, 171, 0.29);
-      ${styles.sameStylingBox}
-      .txt {
-        color: #494e73;
-        background: rgba(129, 150, 143, 0.18);
-        ${styles.sameStylingText}
-      }
-      .counter {
-        color: #494e73;
-        ${styles.sameStylingCounter}
+        width: 100%;
+        height: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 15px;
+        box-sizing: border-box;
       }
     }
   }
