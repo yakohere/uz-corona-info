@@ -6,12 +6,7 @@ import "moment/locale/uz-latn";
 import Spinner from "../UI/Spinner/Spinner";
 
 const World = () => {
-  const [cases, setCases] = useState();
-  const [deaths, setDeaths] = useState();
-  const [recovered, setRecovered] = useState();
-  const [active, setActive] = useState();
-  const [tests, setTests] = useState();
-  const [time, setTime] = useState(null);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -19,12 +14,8 @@ const World = () => {
     fetch("https://corona.lmao.ninja/v2/all")
       .then((response) => response.json())
       .then((responseData) => {
-        setCases(responseData.cases.toLocaleString("fi-FI"));
-        setDeaths(responseData.deaths.toLocaleString("fi-FI"));
-        setRecovered(responseData.recovered.toLocaleString("fi-FI"));
-        setActive(responseData.active.toLocaleString("fi-FI"));
-        setTests(responseData.tests.toLocaleString("fi-FI"));
-        setTime(responseData.updated);
+        console.log(responseData);
+        setData(responseData);
         setLoading(false);
       });
   }, []);
@@ -39,26 +30,34 @@ const World = () => {
             <h1>Dunyo Bo`yicha</h1>
             <img src={WorldPic} alt="img" />
           </div>
+
           <div className="updatedTime">
-            <Moment calendar>{time}</Moment>gi holat.
+            <Moment calendar>{data.time}</Moment>gi holat.
           </div>
           <div className="all-data">
             <div className="case-box">
-              <div className="counter">{cases}</div>
+              <div className="counter">{data.cases?.toLocaleString()}</div>
               <div className="txt">Kasallangan</div>
             </div>
 
             <div className="case-box">
-              <div className="counter">{deaths}</div>
+              <div className="counter">
+                +{data.todayCases?.toLocaleString()}
+              </div>
+              <div className="txt">Bugun</div>
+            </div>
+
+            <div className="case-box">
+              <div className="counter">{data.deaths?.toLocaleString()}</div>
               <div className="txt">O`limlar soni</div>
             </div>
 
             <div className="case-box">
-              <div className="counter">{recovered}</div>
+              <div className="counter">{data.recovered?.toLocaleString()}</div>
               <div className="txt">Sog`ayganlar</div>
             </div>
             <div className="case-box">
-              <div className="counter">{active}</div>
+              <div className="counter">{data.active?.toLocaleString()}</div>
               <div className="txt">Davolanmoqda</div>
             </div>
           </div>
@@ -72,7 +71,7 @@ export default World;
 
 const Container = styled.div`
   text-align: center;
-  padding: 10px;
+  padding: 5px;
   box-sizing: border-box;
   width: 100%;
   display: flex;
@@ -100,7 +99,7 @@ const Container = styled.div`
   }
 
   .all-data {
-    width: 90%;
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -122,7 +121,7 @@ const Container = styled.div`
       margin-bottom: 20px;
 
       align-items: center;
-      box-shadow: 0px 0px 5px 5px rgba(164, 164, 164, 0.25);
+      box-shadow: 0px 0px 7px rgba(54, 49, 49, 0.25);
       @media screen and (max-width: 428px) {
         width: 160px;
       }
@@ -135,7 +134,6 @@ const Container = styled.div`
         box-sizing: border-box;
         text-transform: uppercase;
         font-size: 17px;
-        font-weight: bold;
       }
       .counter {
         width: 100%;

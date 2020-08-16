@@ -36,12 +36,14 @@ const Uzbekistan = () => {
 
           <div className="all-data">
             <div className="case-box">
-              <div className="counter">{cases.cases?.toLocaleString()}</div>
+              <div className="counter" style={{ color: "#136CAC" }}>
+                {cases.cases?.toLocaleString()}
+              </div>
               <div className="txt">Kasallanganlar</div>
             </div>
 
             <div className="case-box">
-              <div className="counter">
+              <div className="counter" style={{ color: "#DC9916" }}>
                 +{cases.todayCases?.toLocaleString()}
               </div>
 
@@ -49,17 +51,23 @@ const Uzbekistan = () => {
             </div>
 
             <div className="case-box">
-              <div className="counter">{cases.deaths?.toLocaleString()}</div>
+              <div className="counter" style={{ color: "#CB4432" }}>
+                {cases.deaths?.toLocaleString()}
+              </div>
               <div className="txt">O`limlar soni</div>
             </div>
 
             <div className="case-box">
-              <div className="counter">{cases.recovered?.toLocaleString()}</div>
+              <div className="counter" style={{ color: "#3C7B31" }}>
+                {cases.recovered?.toLocaleString()}
+              </div>
               <div className="txt">Sog`ayganlar</div>
             </div>
 
             <div className="case-box">
-              <div className="counter">{cases.active?.toLocaleString()}</div>
+              <div className="counter" style={{ color: "#3F3D98" }}>
+                {cases.active?.toLocaleString()}
+              </div>
               <div className="txt">davolanmoqda</div>
             </div>
           </div>
@@ -73,7 +81,7 @@ export default Uzbekistan;
 
 const Container = styled.div`
   text-align: center;
-  padding: 10px;
+  padding: 5px;
   box-sizing: border-box;
   width: 100%;
   display: flex;
@@ -81,13 +89,6 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid grey;
-
-  .info {
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 
   .updatedTime {
     color: red;
@@ -108,7 +109,7 @@ const Container = styled.div`
   }
 
   .all-data {
-    width: 90%;
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -129,7 +130,8 @@ const Container = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      box-shadow: 0px 0px 5px 5px rgba(164, 164, 164, 0.25);
+
+      box-shadow: 0px 0px 7px rgba(54, 49, 49, 0.25);
       @media screen and (max-width: 428px) {
         width: 160px;
       }
@@ -142,7 +144,6 @@ const Container = styled.div`
         box-sizing: border-box;
         text-transform: uppercase;
         font-size: 17px;
-        font-weight: bold;
       }
       .counter {
         width: 100%;

@@ -37,9 +37,7 @@ const TopTen = () => {
             {topCases.map((e) => (
               <div className="case" key={e.country}>
                 <div className="country">{e.country}</div>
-                <div className="numbers-case">
-                  {e.cases.toLocaleString("fi-FI")}
-                </div>
+                <div className="numbers-case">{e.cases.toLocaleString()}</div>
               </div>
             ))}
           </div>
@@ -50,9 +48,7 @@ const TopTen = () => {
             {topDeaths.map((e) => (
               <div className="case" key={e.country}>
                 <div className="country">{e.country}</div>
-                <div className="numbers-death">
-                  {e.deaths.toLocaleString("fi-FI")}
-                </div>
+                <div className="numbers-death">{e.deaths.toLocaleString()}</div>
               </div>
             ))}
           </div>
@@ -64,7 +60,7 @@ const TopTen = () => {
               <div className="case" key={e.country}>
                 <div className="country">{e.country}</div>
                 <div className="numbers-recovered">
-                  {e.recovered.toLocaleString("fi-FI")}
+                  {e.recovered.toLocaleString()}
                 </div>
               </div>
             ))}
@@ -111,7 +107,7 @@ const Container = styled.div`
     color: black;
     width: 250px;
     margin-bottom: 20px;
-    box-shadow: 0px 0px 5px 5px rgba(164, 164, 164, 0.25);
+    box-shadow: 0px 0px 7px rgba(54, 49, 49, 0.25);
 
     @media screen and (max-width: 428px) {
       width: 100%;
