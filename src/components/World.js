@@ -39,7 +39,7 @@ const World = () => {
               <div className="counter" style={{ color: "#0B8DA9" }}>
                 {data.cases?.toLocaleString()}
               </div>
-              <div className="txt">Kasallangan</div>
+              <div className="txt">Kasallanganlar</div>
             </div>
 
             <div className="case-box">
