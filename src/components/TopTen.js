@@ -6,8 +6,11 @@ const TopTen = () => {
   const [topCases, setTopCases] = useState([]);
   const [topDeaths, setTopDeaths] = useState([]);
   const [topRecovered, setTopRecovered] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
+
     fetch("https://corona.lmao.ninja/v2/countries")
       .then((response) => response.json())
       .then((responseData) => {
@@ -25,49 +28,58 @@ const TopTen = () => {
             .sort((a, b) => (a.recovered < b.recovered ? 1 : -1))
             .slice(0, 10)
         );
+        setLoading(false);
       });
   }, []);
 
   return (
-    <Container>
-      <div className="top-ten">
-        <div className="container">
-          <div className="title-cases">Eng ko`p kasallanganlar</div>
-          <div className="cases-container">
-            {topCases.map((e) => (
-              <div className="case" key={e.country}>
-                <div className="country">{e.country}</div>
-                <div className="numbers-case">{e.cases.toLocaleString()}</div>
+    <div>
+      {loading ? null : (
+        <Container>
+          <div className="top-ten">
+            <div className="container">
+              <div className="title-cases">Eng ko`p kasallanganlar</div>
+              <div className="cases-container">
+                {topCases.map((e) => (
+                  <div className="case" key={e.country}>
+                    <div className="country">{e.country}</div>
+                    <div className="numbers-case">
+                      {e.cases.toLocaleString()}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-        <div className="container">
-          <div className="title-deaths">Eng ko`p Vafot etganlar</div>
-          <div className="cases-container">
-            {topDeaths.map((e) => (
-              <div className="case" key={e.country}>
-                <div className="country">{e.country}</div>
-                <div className="numbers-death">{e.deaths.toLocaleString()}</div>
+            </div>
+            <div className="container">
+              <div className="title-deaths">Eng ko`p Vafot etganlar</div>
+              <div className="cases-container">
+                {topDeaths.map((e) => (
+                  <div className="case" key={e.country}>
+                    <div className="country">{e.country}</div>
+                    <div className="numbers-death">
+                      {e.deaths.toLocaleString()}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-        <div className="container">
-          <div className="title-recovered">eng ko`p Sog`ayganlar</div>
-          <div className="cases-container">
-            {topRecovered.map((e) => (
-              <div className="case" key={e.country}>
-                <div className="country">{e.country}</div>
-                <div className="numbers-recovered">
-                  {e.recovered.toLocaleString()}
-                </div>
+            </div>
+            <div className="container">
+              <div className="title-recovered">eng ko`p Sog`ayganlar</div>
+              <div className="cases-container">
+                {topRecovered.map((e) => (
+                  <div className="case" key={e.country}>
+                    <div className="country">{e.country}</div>
+                    <div className="numbers-recovered">
+                      {e.recovered.toLocaleString()}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </div>
-    </Container>
+        </Container>
+      )}
+    </div>
   );
 };
 

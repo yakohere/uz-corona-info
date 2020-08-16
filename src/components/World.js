@@ -3,7 +3,6 @@ import styled from "styled-components";
 import WorldPic from "../assets/world.png";
 import Moment from "react-moment";
 import "moment/locale/uz-latn";
-import Spinner from "../UI/Spinner/Spinner";
 
 const World = () => {
   const [data, setData] = useState([]);
@@ -14,7 +13,6 @@ const World = () => {
     fetch("https://corona.lmao.ninja/v2/all")
       .then((response) => response.json())
       .then((responseData) => {
-        console.log(responseData);
         setData(responseData);
         setLoading(false);
       });
@@ -22,9 +20,7 @@ const World = () => {
 
   return (
     <div>
-      {loading ? (
-        <Spinner />
-      ) : (
+      {loading ? null : (
         <Container>
           <div className="title">
             <h1>Dunyo Bo`yicha</h1>
