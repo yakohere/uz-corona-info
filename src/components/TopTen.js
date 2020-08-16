@@ -43,7 +43,7 @@ const TopTen = () => {
           </div>
         </div>
         <div className="container">
-          <div className="title-deaths">Eng ko`p o`limlar soni</div>
+          <div className="title-deaths">Eng ko`p Vafot etganlar</div>
           <div className="cases-container">
             {topDeaths.map((e) => (
               <div className="case" key={e.country}>

@@ -36,28 +36,36 @@ const World = () => {
           </div>
           <div className="all-data">
             <div className="case-box">
-              <div className="counter">{data.cases?.toLocaleString()}</div>
+              <div className="counter" style={{ color: "#0B8DA9" }}>
+                {data.cases?.toLocaleString()}
+              </div>
               <div className="txt">Kasallangan</div>
             </div>
 
             <div className="case-box">
-              <div className="counter">
+              <div className="counter" style={{ color: "#DC9916" }}>
                 +{data.todayCases?.toLocaleString()}
               </div>
               <div className="txt">Bugun</div>
             </div>
 
             <div className="case-box">
-              <div className="counter">{data.deaths?.toLocaleString()}</div>
-              <div className="txt">O`limlar soni</div>
+              <div className="counter" style={{ color: "#CB4432" }}>
+                {data.deaths?.toLocaleString()}
+              </div>
+              <div className="txt">Vafot erganlar</div>
             </div>
 
             <div className="case-box">
-              <div className="counter">{data.recovered?.toLocaleString()}</div>
+              <div className="counter" style={{ color: "#3C7B31" }}>
+                {data.recovered?.toLocaleString()}
+              </div>
               <div className="txt">Sog`ayganlar</div>
             </div>
             <div className="case-box">
-              <div className="counter">{data.active?.toLocaleString()}</div>
+              <div className="counter" style={{ color: "#A57548" }}>
+                {data.active?.toLocaleString()}
+              </div>
               <div className="txt">Davolanmoqda</div>
             </div>
           </div>

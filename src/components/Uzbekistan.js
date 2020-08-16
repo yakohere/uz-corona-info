@@ -36,7 +36,7 @@ const Uzbekistan = () => {
 
           <div className="all-data">
             <div className="case-box">
-              <div className="counter" style={{ color: "#136CAC" }}>
+              <div className="counter" style={{ color: "#0B8DA9" }}>
                 {cases.cases?.toLocaleString()}
               </div>
               <div className="txt">Kasallanganlar</div>
@@ -54,7 +54,7 @@ const Uzbekistan = () => {
               <div className="counter" style={{ color: "#CB4432" }}>
                 {cases.deaths?.toLocaleString()}
               </div>
-              <div className="txt">O`limlar soni</div>
+              <div className="txt">Vafot etganlar</div>
             </div>
 
             <div className="case-box">
@@ -65,7 +65,7 @@ const Uzbekistan = () => {
             </div>
 
             <div className="case-box">
-              <div className="counter" style={{ color: "#3F3D98" }}>
+              <div className="counter" style={{ color: "#A57548" }}>
                 {cases.active?.toLocaleString()}
               </div>
               <div className="txt">davolanmoqda</div>
