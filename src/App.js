@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import Uzbekistan from "./components/Uzbekistan";
 import World from "./components/World";
 import Navigation from "./UI/Navigation";
@@ -6,36 +6,29 @@ import TopTen from "./components/TopTen";
 import Footer from "./UI/Footer";
 import MenyuComponent from "./UI/Menyu";
 
-class App extends Component {
-  state = {
-    showMenyu: false,
-  };
+const App = () => {
+  const [showMenu, setShowMenu] = useState(false)
 
-  menyuToggleHandler = () => {
-    this.setState({ showMenyu: true });
+  cosnt menuToggleHandler = () => {
+    setShowMenu(!showMenu);
   };
-
-  menyuCloseHandler = () => {
-    this.setState({ showMenyu: false });
-  };
-
-  render() {
+ 
     return (
       <Fragment>
-        <Navigation menyuClicked={this.menyuToggleHandler} />
-        {this.state.showMenyu ? (
+        <Navigation menyuClicked={menuToggleHandler} />
+        {showMenyu &&  
           <MenyuComponent
-            backdropClicked={this.menyuCloseHandler}
-            menyuShow={this.state.showMenyu}
+            backdropClicked={menuToggleHandler}
+            menyuShow={showMenu}
           />
-        ) : null}
+         }
         <Uzbekistan />
         <World />
         <TopTen />
         <Footer />
       </Fragment>
     );
-  }
+  
 }
 
 export default App;
