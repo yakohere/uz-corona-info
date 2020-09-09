@@ -51,7 +51,7 @@ class About extends Component {
           <div className="txt">
             Web sayt Yakhyo Ismoiljonov tomonidan tayyorlandi.
             <br />
-            <a href="https://www.facebook.com/yakhyo.ismoildjanov">
+            <a href="https://www.facebook.com/yakohere">
               <Fb />
             </a>
             <a href="mailto:yakhyoismoildjonov@gmail.com?subject=subject text">
@@ -60,7 +60,7 @@ class About extends Component {
             <a href="https://www.linkedin.com/in/yako-ism/">
               <In />
             </a>
-            <a href="https://github.com/devyako/">
+            <a href="https://github.com/yakohere/">
               <Git />
             </a>
           </div>
