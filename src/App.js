@@ -9,14 +9,14 @@ import MenyuComponent from "./UI/Menyu";
 const App = () => {
   const [showMenu, setShowMenu] = useState(false)
 
-  cosnt menuToggleHandler = () => {
+  const menuToggleHandler = () => {
     setShowMenu(!showMenu);
   };
  
     return (
       <Fragment>
         <Navigation menyuClicked={menuToggleHandler} />
-        {showMenyu &&  
+        {showMenu &&  
           <MenyuComponent
             backdropClicked={menuToggleHandler}
             menyuShow={showMenu}
